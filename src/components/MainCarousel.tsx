@@ -1,20 +1,47 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import styles from '../app/styles/slider.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStates } from '@/app/redux/store';
+import { fetchMainImagesCarousel } from '@/app/redux/features/main-carousel-image/carouselSlice';
+import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
+import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
 
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+      <img src={arrow_next.src} className={className} style={{ ...style, width: "40px", height: "40px", right: "-35px" }} onClick={onClick} />
+  );
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+      <img src={arrow_prev.src} className={className} style={{ ...style, width: "40px", height: "40px", left: "-40px"}} onClick={onClick} />
+  );
+}  
 
 export default function MainCarousel() {
+    const carouselImages = useSelector((state: RootStates) => state.mainImagesCarousel.mainImages);
+    const dispatch = useDispatch<any>();
+
+    useEffect(() => {
+      dispatch(fetchMainImagesCarousel())
+    }, [])
+    
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         initialSlide: 0,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
         responsive: [
           {
             breakpoint: 1024,
@@ -45,30 +72,11 @@ export default function MainCarousel() {
       return (
         <div className={styles.slider_container}>
           <Slider {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
-            <div>
-              <h3>7</h3>
-            </div>
-            <div>
-              <h3>8</h3>
-            </div>
+            { carouselImages?.map((item, index) => (
+              <div key={index} className={styles.carousel__item}>
+                <img src={item.image} className={styles.carousel__item_img} />
+              </div>
+            )) }
           </Slider>
         </div>
       );

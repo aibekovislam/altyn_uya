@@ -7,6 +7,10 @@
     margin: 0 auto;
 }
 
+.logo {
+    margin-top: 20px;
+}
+
 .navbar__items {
     width: 100%;
     height: auto;
@@ -16,6 +20,8 @@
 
 .navigation {
     width: 70%;
+    height: max-content;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,4 +59,6 @@
     column-gap: 10px;
     cursor: pointer;
     user-select: none;
+    height: max-content;
+    padding-top: 20px;
 }
