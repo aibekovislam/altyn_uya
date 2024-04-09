@@ -68,8 +68,9 @@ export default function MainCarousel() {
             }
           }
         ]
-      };
-      return (
+    };
+
+    return (
         <div className={styles.slider_container}>
           <Slider {...settings}>
             { carouselImages?.map((item, index) => (
@@ -79,5 +80,5 @@ export default function MainCarousel() {
             )) }
           </Slider>
         </div>
-      );
+    );
 }

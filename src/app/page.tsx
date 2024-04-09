@@ -10,6 +10,7 @@ import whatsapp from './assets/svgs/social_media/whatsapp.svg';
 import AboutUsSection from "@/components/AboutUsSection";
 import DifferentCharity from "@/components/DifferentCharity";
 import BigCarousel from "@/components/BigCarousel";
+import SecondDifferentCharity from "@/components/SecondDifferentCharity";
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
@@ -52,6 +53,7 @@ export default function Home() {
       <AboutUsSection/>
       <DifferentCharity/>
       <BigCarousel/>
+      <SecondDifferentCharity/>
     </>
   );
 }

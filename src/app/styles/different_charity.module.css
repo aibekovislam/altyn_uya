@@ -38,3 +38,46 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.second_different_charity {
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+    position: relative;
+}
+
+.second_different_charity_title {
+    color: #FFA900;
+    font-weight: 700;
+    font-size: 50px;
+    max-width: 500px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    text-align: right;
+}
+
+.second_card_block {
+    width: 100%;
+    height: auto;
+}
+
+.second_card_index_0 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.second_card_index_1 {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 36%;
+}
+
+.second_card_index_2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
