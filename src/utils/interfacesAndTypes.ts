@@ -1,5 +1,6 @@
 export interface mainImagesCarouselI {
-    mainImages: mainImagesCarouselType[]
+    mainImages?: mainImagesCarouselType[],
+    bigCarousel?: any[]
 }
 
 export type mainImagesCarouselType = {

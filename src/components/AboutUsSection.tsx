@@ -7,7 +7,7 @@ import arrowDown from '../app/assets/svgs/arrow_down.svg';
 
 export default function AboutUsSection() {
   return (
-    <section className={styles.about_us}>
+    <section className={styles.about_us} id='about_us'>
         <div className='container'>
             <div className={styles.about_us__items}>
                 <div className={styles.about_us_title}>О нас</div>

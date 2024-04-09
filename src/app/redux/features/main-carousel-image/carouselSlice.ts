@@ -6,6 +6,7 @@ import axios from "axios";
 
 const initialState: mainImagesCarouselI = {
     mainImages: [],
+    bigCarousel: []
 }
 
 const mainImagesCarousel = createSlice({
@@ -14,7 +15,10 @@ const mainImagesCarousel = createSlice({
     reducers: {
         setMainImages: (state, action: PayloadAction<mainImagesCarouselI>) => {
             state.mainImages = action.payload.mainImages;
-        },      
+        },   
+        setBigCarousel: (state, action: PayloadAction<mainImagesCarouselI>) => {
+            state.bigCarousel = action.payload.bigCarousel;
+        },   
     }
 });
 
@@ -30,5 +34,5 @@ export const fetchMainImagesCarousel = (): AppThunk => async (dispatch) => {
     }
 }
 
-export const { setMainImages } = mainImagesCarousel.actions;
+export const { setMainImages, setBigCarousel } = mainImagesCarousel.actions;
 export default mainImagesCarousel.reducer;

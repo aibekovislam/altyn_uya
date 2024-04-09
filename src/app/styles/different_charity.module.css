@@ -1,19 +1,40 @@
 .different_charity {
-    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    position: relative;
 }
 
 .different_charity_title {
-    max-width: 540px;
-    font-size: 50px;
-    line-height: 60px;
     color: #FFA900;
     font-weight: 700;
-}
-
-.d_f_charity {
-    display: flex;
+    font-size: 50px;
+    max-width: 500px;
+    position: absolute;
+    top: 0;
+    left: 30px;
 }
 
 .card_block {
-    
+    width: 100%;
+    height: auto;
+}
+
+.card_index_0 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_index_1 {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 36%;
+}
+
+.card_index_2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }

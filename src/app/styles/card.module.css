@@ -1,7 +1,42 @@
 .card {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 550px;
-    
+    width: 400px;
+    height: 530px;
+    box-shadow: 0px 0px 50px 0px #0000004D;
+}
+
+.main_text_card {
+    text-transform: uppercase;
+    color: #FFA900;
+    font-weight: 700;
+}
+
+.card_description {
+    max-width: 450px;
+    line-height: 25px;
+    padding: 20px;
+}
+
+.card_btn {
+    width: 250px;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #203F7D 0%, #1AABBE 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d_f_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
 }

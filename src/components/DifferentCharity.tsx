@@ -17,15 +17,17 @@ export default function DifferentCharity() {
 
 
   return (
-    <section className={styles.different_charity}>
+    <section className={styles.different_charity} id='different_charity'>
       <div className='container'>
         <div className={styles.d_f_charity}>
           <div className={styles.different_charity_title}>
             КУРМАНДЫКТЫН ТҮРЛӨРҮ
           </div>
           <div className={styles.card_block}>
-            { firstPosts?.map((item: any) => (
-              <Card firstPost={item}/>
+            { firstPosts?.map((item: any, index: number) => (
+              <div className={styles[`card_index_${index}`]} key={index}>
+                <Card firstPost={item}/>
+              </div>
             )) }
           </div>
         </div>
