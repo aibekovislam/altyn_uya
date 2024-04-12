@@ -81,3 +81,27 @@
     justify-content: flex-end;
 }
 
+
+.social_media_block {
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+    position: absolute;
+    bottom: 1%;
+}
+
+.social_media {
+    display: flex;
+    column-gap: 20px;
+}
+
+
+.arrow_down {
+    margin-top: 70px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}

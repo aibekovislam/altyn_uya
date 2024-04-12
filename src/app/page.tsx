@@ -11,6 +11,10 @@ import AboutUsSection from "@/components/AboutUsSection";
 import DifferentCharity from "@/components/DifferentCharity";
 import BigCarousel from "@/components/BigCarousel";
 import SecondDifferentCharity from "@/components/SecondDifferentCharity";
+import Gallery from "@/components/Gallery";
+import Faq from "@/components/Faq";
+import Report from "@/components/Report";
+import FooterMain from "@/components/FooterMain";
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
@@ -54,6 +58,10 @@ export default function Home() {
       <DifferentCharity/>
       <BigCarousel/>
       <SecondDifferentCharity/>
+      <Gallery/>
+      <Faq/>
+      <Report/>
+      <FooterMain/>
     </>
   );
 }

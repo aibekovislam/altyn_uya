@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Europe Bold';
+    src: url('../assets/font/europeext_bold.otf') format('opentype');
+}
+
+.europeFont {
+    font-family: 'Europe Bold', sans-serif;
+}
+
+.gallery_block {
+    margin-top: 300px;
+}
+
+.gallery__item h3 {
+    font-size: 150px;
+    font-weight: 700;
+    background: linear-gradient(89.98deg, #FFFFFF -15%, #779DB0 131.82%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.gallery_img_block {
+    margin: 10px;
+    width: 400px !important;
+    height: 400px;
+}
+
+.gallery_img_block img {
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+    margin-right: 20px;
+}
+
+.gallery_slider {
+    width: 100%;
+}
