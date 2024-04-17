@@ -1,15 +1,15 @@
 "use client"
 
 import React, { useEffect } from 'react';
-import styles from '../app/styles/gallery.module.css';
+import styles from './gallery.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
-import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
+import arrow_next from '../../../app/assets/svgs/slider/arrow_next.svg';
+import arrow_prev from '../../../app/assets/svgs/slider/arrow_prev.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
-import { fetchGallery } from '@/app/redux/features/main-carousel-image/galleryCarousel';
+import { fetchReport } from '@/app/redux/features/main-carousel-image/reportSlice';
 import { API_URL } from '@/utils/consts';
 
 function SampleNextArrow(props: any) {
@@ -26,13 +26,15 @@ function SamplePrevArrow(props: any) {
     );
 }  
 
-export default function GallerySlider() {
-    const gallery = useSelector((state: RootStates) => state.gallery.galleryImages);
+export default function ReportSlider() {
+    const reports = useSelector((state: RootStates) => state.reports.reports);
     const dispatch = useDispatch<any>()
 
     useEffect(() => {
-        dispatch(fetchGallery())
+        dispatch(fetchReport())
     }, [dispatch])
+
+    console.log(reports)
 
     var settings = {
         dots: false,
@@ -73,7 +75,7 @@ export default function GallerySlider() {
     return (
         <section className={styles.gallery_slider}>
             <Slider {...settings}>
-                { gallery?.map((item: any, index: number) => (
+                { reports?.map((item: any, index: number) => (
                     <div className={styles.gallery_img_block} key={index}>
                         <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
                     </div>

@@ -1,0 +1,26 @@
+.questions {
+    margin-top: 30px;
+}
+
+.question__title {
+    text-align: center;
+    color: #FFA900;
+    font-weight: 600;
+}
+
+.question__typography {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question__description {
+    color: #656565;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    max-width: 750px;
+    text-align: center;
+}

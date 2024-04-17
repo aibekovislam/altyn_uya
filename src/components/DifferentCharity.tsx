@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import styles from '../app/styles/different_charity.module.css';
-import Card from './Card';
+import Card from './MainCard/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
 import { fetchFirstPosts } from '@/app/redux/features/cards/postSlice';

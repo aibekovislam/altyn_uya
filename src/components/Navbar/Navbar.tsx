@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState } from 'react';
-import styles from '../app/styles/navbar.module.css';
-import KGLng from '../app/assets/svgs/navbar/Group 173.svg';
-import LogoSVG from '../app/assets/svgs/navbar/Group 649.svg';
+import styles from './navbar.module.css';
+import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
+import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
 
 export default function Navbar() {
     const [activeNavbar, setActiveItem] = useState('Главная');

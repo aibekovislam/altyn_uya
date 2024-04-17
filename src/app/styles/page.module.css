@@ -93,3 +93,18 @@
   cursor: pointer;
   margin-right: 10px;
 }
+
+/* Ask section */
+
+.ask_section {
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.back_block {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}

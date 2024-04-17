@@ -62,3 +62,64 @@
     height: max-content;
     padding-top: 20px;
 }
+
+/* Navbar блока ask and question  */
+
+.ask_block_navbar {
+    margin-top: 30px;
+}
+
+.navigation_ask {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.links_wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation__link {
+    list-style-type: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.navigation__link::after {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: all 0.5s;
+    pointer-events: none;
+}
+
+.navigation__link.active_navbar::after,
+.navigation__link:hover::after {
+    opacity: 1;
+}
+
+.navigation__lng {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    cursor: pointer;
+}

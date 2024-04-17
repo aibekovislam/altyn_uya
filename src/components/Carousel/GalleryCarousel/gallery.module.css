@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Europe Bold';
-    src: url('../assets/font/europeext_bold.otf') format('opentype');
+    src: url('../../../app/assets/font/europeext_bold.otf') format('opentype');
 }
 
 .europeFont {

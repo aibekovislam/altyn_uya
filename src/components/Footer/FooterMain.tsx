@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../app/styles/footer.module.css';
-import logo_big from '../app/assets/svgs/Group 812.svg'
+import styles from './footer.module.css';
+import logo_big from '../../app/assets/svgs/Group 812.svg'
 
 export default function FooterMain() {
   return (

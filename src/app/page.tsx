@@ -1,6 +1,6 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import styles from "./styles/page.module.css";
-import MainCarousel from "@/components/MainCarousel";
+import MainCarousel from "@/components/Carousel/MainCarousel";
 import localFont from 'next/font/local';
 import video_svg from './assets/svgs/video_alt.svg';
 import google from './assets/svgs/social_media/google.svg';
@@ -9,12 +9,12 @@ import instagram from './assets/svgs/social_media/instagram.svg';
 import whatsapp from './assets/svgs/social_media/whatsapp.svg';
 import AboutUsSection from "@/components/AboutUsSection";
 import DifferentCharity from "@/components/DifferentCharity";
-import BigCarousel from "@/components/BigCarousel";
+import BigCarousel from "@/components/Carousel/BigCarousel";
 import SecondDifferentCharity from "@/components/SecondDifferentCharity";
-import Gallery from "@/components/Gallery";
+import Gallery from "@/components/Carousel/GalleryCarousel/Gallery";
 import Faq from "@/components/Faq";
-import Report from "@/components/Report";
-import FooterMain from "@/components/FooterMain";
+import Report from "@/components/Carousel/GalleryCarousel/Report";
+import FooterMain from "@/components/Footer/FooterMain";
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',

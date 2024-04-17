@@ -4,12 +4,12 @@ import React, { useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import styles from '../app/styles/slider.module.css';
+import styles from './slider.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
 import { fetchMainImagesCarousel } from '@/app/redux/features/main-carousel-image/carouselSlice';
-import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
-import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
+import arrow_next from '../../app/assets/svgs/slider/arrow_next.svg';
+import arrow_prev from '../../app/assets/svgs/slider/arrow_prev.svg';
 import { API_URL } from '@/utils/consts';
 
 function SampleNextArrow(props: any) {

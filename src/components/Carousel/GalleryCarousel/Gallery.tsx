@@ -1,18 +1,19 @@
 "use client"
 
-import styles from '../app/styles/gallery.module.css'
-import ReportSlider from './ReportSlider';
+import React from 'react';
+import styles from './gallery.module.css'
+import GallerySlider from './GallerySlider';
 
-export default function Report() {
+export default function Gallery() {
     return (
         <div className={styles.gallery_block}>
             <div className='container'>
                 <div className={styles.gallery__d_f}>
                     <div className={styles.gallery__item}>
-                        <h3 className={styles.europeFont} style={{ textAlign: "right" }}>ОТЧЕТ</h3>
+                        <h3 className={styles.europeFont}>ГАЛЛЕРЕЯ</h3>
                     </div>
                     <div className={styles.gallery__item}>
-                        <ReportSlider/>
+                        <GallerySlider/>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../app/styles/card.module.css';
-import charitySVG from '../app/assets/svgs/charity_svg.svg';
+import styles from './card.module.css';
+import charitySVG from '../../app/assets/svgs/charity_svg.svg';
 import { API_URL } from '@/utils/consts';
 
 export default function Card({ firstPost }: any) {
