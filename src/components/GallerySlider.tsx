@@ -10,6 +10,7 @@ import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
 import { fetchGallery } from '@/app/redux/features/main-carousel-image/galleryCarousel';
+import { API_URL } from '@/utils/consts';
 
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
@@ -74,7 +75,7 @@ export default function GallerySlider() {
             <Slider {...settings}>
                 { gallery?.map((item: any, index: number) => (
                     <div className={styles.gallery_img_block} key={index}>
-                        <img src={item.image} alt='gallery'/>
+                        <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
                     </div>
                 )) }
             </Slider>

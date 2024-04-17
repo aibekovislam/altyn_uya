@@ -10,6 +10,7 @@ import { RootStates } from '@/app/redux/store';
 import { fetchMainImagesCarousel } from '@/app/redux/features/main-carousel-image/carouselSlice';
 import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
+import { API_URL } from '@/utils/consts';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -75,7 +76,7 @@ export default function MainCarousel() {
           <Slider {...settings}>
             { carouselImages?.map((item, index) => (
               <div key={index} className={styles.carousel__item}>
-                <img src={item.image} className={styles.carousel__item_img} />
+                <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.carousel__item_img} />
               </div>
             )) }
           </Slider>

@@ -1,1 +1,1 @@
-export const API_URL = 'http://165.232.123.142'
+export const API_URL = 'https://michelle-kg.online'

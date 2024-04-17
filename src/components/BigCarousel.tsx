@@ -10,6 +10,7 @@ import { RootStates } from '@/app/redux/store';
 import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
 import { fetchBigCarouselImages } from '@/app/redux/features/main-carousel-image/bigCarousel';
+import { API_URL } from '@/utils/consts';
 
 
 function SampleNextArrow(props: any) {
@@ -53,7 +54,7 @@ export default function BigCarousel() {
                 <Slider { ...settings } >
                     { bigImages?.map((item: any, index: number) => (
                         <div className={styles.big_img_carousel} key={index}>
-                            <img src={item.image} className={styles.big_img} alt={item.main_text} />
+                            <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.big_img} alt={item.main_text} />
                             <div className={styles.carousel_content}>
                                 <div className={styles.main__text}>{ item.main_text_kg }</div>
                                 <p className={styles.main_description}>{ item.text_kg }</p>
