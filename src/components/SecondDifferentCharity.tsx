@@ -5,7 +5,7 @@ import styles from '../app/styles/different_charity.module.css';
 import Card from './MainCard/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
-import { fetchFirstPosts } from '@/app/redux/features/cards/postSlice';
+import { fetchSecondPosts } from '@/app/redux/features/cards/postSlice';
 import google from '../app/assets/svgs/social_media/google_plus.svg';
 import facebook from '../app/assets/svgs/social_media/facebook_blue.svg';
 import instagram from '../app/assets/svgs/social_media/instagram_blue.svg';
@@ -14,12 +14,14 @@ import arrowDown from '../app/assets/svgs/arrow_down.svg';
 
 
 export default function SecondDifferentCharity() {
-  const firstPosts = useSelector((state: RootStates) => state.posts.firstPosts);
+  const posts = useSelector((state: RootStates) => state.posts.secondPosts);
   const dispatch = useDispatch<any>();
 
   useEffect(() => {
-    dispatch(fetchFirstPosts());
+    dispatch(fetchSecondPosts());
   }, [])
+
+  console.log(posts)
 
   return (
     <section className={styles.second_different_charity} id='different_charity'>
@@ -29,7 +31,7 @@ export default function SecondDifferentCharity() {
             ШЫПАА КУРМАНДЫГЫ
           </div>
           <div className={styles.second_card_block}>
-            { firstPosts?.map((item: any, index: number) => (
+            { posts?.map((item: any, index: number) => (
               <div className={styles[`second_card_index_${index}`]} key={index}>
                 <Card firstPost={item}/>
               </div>

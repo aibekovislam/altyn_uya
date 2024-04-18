@@ -9,5 +9,6 @@ export type mainImagesCarouselType = {
 }
 
 export interface postsI {
-    firstPosts: any
+    firstPosts?: any,
+    secondPosts?: any
 }

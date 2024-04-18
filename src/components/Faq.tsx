@@ -6,14 +6,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
 import { fetchFAQ } from '@/app/redux/features/faq/faqSlice';
 import click_link from '../app/assets/svgs/click_link.svg';
+import { useRouter } from 'next/navigation';
 
 export default function Faq() {
     const faq = useSelector((state: RootStates) => state.faq.faq);
     const dispatch = useDispatch<any>();
+    const navigate = useRouter();
 
     useEffect(() => {
         dispatch(fetchFAQ())
     }, [dispatch])
+
+    const handleFaqClick = (id: number) => {
+        navigate.push(`/ask-and-question#${id}`);
+    };
 
     return (
         <section id='faq' className={styles.faq__block}>
@@ -22,7 +28,7 @@ export default function Faq() {
                 <div className='container'>
                     <div className={styles.faq__img_block}>
                         { faq.map((item: any, index: number) => (
-                            <div key={index} className={styles.block_faq}>
+                            <div key={index} className={styles.block_faq} onClick={() => handleFaqClick(item.id)}>
                                 {item.text_kg} 
                                 <img src={click_link.src} alt='click_link' />
                             </div>

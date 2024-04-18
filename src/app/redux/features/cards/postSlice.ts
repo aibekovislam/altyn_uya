@@ -6,6 +6,7 @@ import axios from "axios";
 
 const initialState: postsI = {
     firstPosts: [],
+    secondPosts: []
 }
 
 const postslice = createSlice({
@@ -14,17 +15,32 @@ const postslice = createSlice({
     reducers: {
         setFirstPosts: (state, action: PayloadAction<postsI>) => {
             state.firstPosts = action.payload.firstPosts;
-        },      
+        },
+        setSecondPosts: (state, action: PayloadAction<postsI>) => {
+            state.secondPosts = action.payload.secondPosts;
+        },  
     }
 });
 
 export const fetchFirstPosts = (): AppThunk => async (dispatch) => {
     try {
-        const response = await axios.get(`${API_URL}/api/first-posts`);
+        const response = await axios.get(`${API_URL}/api/first-posts/`);
         console.log(response)
         // const responseData = await response.json();
         const data: postsI = { firstPosts: response.data };
         dispatch(postslice.actions.setFirstPosts(data))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const fetchSecondPosts = (): AppThunk => async (dispatch) => {
+    try {
+        const response = await axios.get(`${API_URL}/api/second-posts/`);
+        console.log(response)
+        // const responseData = await response.json();
+        const data: postsI = { secondPosts: response.data };
+        dispatch(postslice.actions.setSecondPosts(data))
     } catch (error) {
         console.log(error);
     }
