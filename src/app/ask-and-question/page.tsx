@@ -1,15 +1,14 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import arrowDown from '../../app/assets/svgs/arrow_back.svg';
 import Questions from '@/components/Questions/Questions';
 import styles from '../styles/page.module.css';
 import FooterAsk from '@/components/Footer/FooterAsk';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function page() {
   const navigate = useRouter();
-  const params = useSearchParams()
   
 
   const questionRef = useRef<HTMLDivElement>(null);
@@ -19,8 +18,6 @@ export default function page() {
   //     questionRef.current.scrollIntoView({ behavior: 'smooth' });
   //   }
   // }, [id]);
-
-  console.log(params)
 
   return (
     <>
