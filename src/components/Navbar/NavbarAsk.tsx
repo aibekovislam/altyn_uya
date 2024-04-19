@@ -4,13 +4,20 @@ import React, { useState } from 'react';
 import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import { NavbarProps } from './Navbar.props';
+import { useRouter } from 'next/navigation';
 
 export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' }: NavbarProps) {
   const [activeNavbar, setActiveItem] = useState(selectedSection);
+  const navigate = useRouter();
 
   const handleItemClick = (item: string) => {
     setActiveItem(item);
     selectedSection = activeNavbar;
+    if(item === 'Анкета') {
+      navigate.push('/form')
+    } else if(item === 'Вопрос/ответ') {
+      navigate.push('/ask-and-question')
+    }
   };
 
   return (

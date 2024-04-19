@@ -2,8 +2,9 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { AppThunk } from "../../store";
 import { API_URL } from "@/utils/consts";
 import axios from "axios";
+import { QuestionsI } from "@/utils/interfacesAndTypes";
 
-const initialState = {
+const initialState: QuestionsI = {
     questions: []
 }
 
@@ -11,7 +12,7 @@ const questionSlice = createSlice({
     initialState,
     name: "questions",
     reducers: {
-        setQuestions: (state, action: PayloadAction<any>) => {
+        setQuestions: (state, action: PayloadAction<QuestionsI>) => {
             state.questions = action.payload.questions
         }
     }

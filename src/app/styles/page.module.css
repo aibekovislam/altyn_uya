@@ -109,3 +109,147 @@
   column-gap: 10px;
   cursor: pointer;
 }
+
+/* Form page section  */
+
+.form_page {
+  margin-top: 30px;
+}
+
+.form_d_f {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.form__title {
+  text-align: center;
+  font-size: 48px;
+  color: #FFA900;
+  font-weight: 600;
+}
+
+.back_block_ask {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+}
+
+.form_and_video {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.form__item {
+  width: 50%;
+  height: auto;
+}
+
+.form_page_img {
+  width: 830px;
+  height: 515px;
+  object-fit: contain;
+}
+
+.arrow_down {
+  margin-top: 150px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.billing_block {
+  margin-top: 30px;
+}
+
+.billing_d_f {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+
+.billing__title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.billing__title h3 {
+  align-items: center;
+  font-size: 32px;
+  font-weight: 600;
+  max-width: 940px;
+  text-align: center;
+  color: #656565;
+}
+
+.billings {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.billing {
+  width: 300px;
+  height: 450px;
+  background: linear-gradient(90deg, #FFA900 0%, #FFDE68 100%);
+  box-shadow: 0px 4px 24px 0px #00000033;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.billing_img {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  box-shadow: 0px 4px 24px 0px #00000033;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.billing_img img {
+  width: 100px;
+  height: 85px;
+  object-fit: contain;
+}
+
+.requisite_info {
+  margin-top: 30px;
+  line-height: 30px;
+  color: #323232;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.address_d_f {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address_info {
+  margin: 50px 0px 150px 0px;
+}
+
+.address_info_text {
+  max-width: 900px;
+  text-align: right;
+  color: #323232;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.address_info_text span {
+  color: black;
+  font-weight: 600;
+}

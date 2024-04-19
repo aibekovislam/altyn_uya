@@ -4,13 +4,18 @@ import React, { useState } from 'react';
 import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [activeNavbar, setActiveItem] = useState('Главная');
+    const navigate = useRouter();
 
     const handleItemClick = (item: string, sectionId: any) => {
         setActiveItem(item);
         smoothScroll(sectionId);
+        if(item === 'Анкета') {
+            navigate.push('/form')
+        }
     };
 
     const smoothScroll = (id: any) => {

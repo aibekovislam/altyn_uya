@@ -163,3 +163,8 @@
 .questions__with_img__item {
     width: 50%;
 }
+
+.key_answer {
+    color: #FFA900;
+    font-weight: 500;
+}

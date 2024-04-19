@@ -13,6 +13,14 @@ import phone from '../../app/assets/svgs/social_media/Vector (25).svg';
 
 export default function FooterAsk() {
     const navigate = useRouter();
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
     return (
         <footer className={styles.footer_ask_block}>
             <div className={styles.shadow}></div>
@@ -38,7 +46,7 @@ export default function FooterAsk() {
                     </div>
                     <p>Ошондой эле, Бишкек шаары, Мичурин көчөсү 80 (Жибек-Жолу/Эркиндик бульвары тарап) дареги боюнча жайгашкан Фонддун кеңсесине келип, кызматкерлерге жекеме-жеке жолугуу мүмкүн.</p>
                     <div className={styles.contact_us}>altynuyakg@gmail.com</div>
-                    <div className={styles.up_block} onClick={() => navigate.push('/')}>
+                    <div className={styles.up_block} onClick={scrollToTop}>
                         <img src={arrowUp.src} alt='back arrow' className={styles.arrow_back_img} />
                         <span>Вверх</span>
                     </div>

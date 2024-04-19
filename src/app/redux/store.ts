@@ -6,6 +6,7 @@ import galleryReducer from './features/main-carousel-image/galleryCarousel';
 import faqReducer from './features/faq/faqSlice';
 import reportReducer from './features/main-carousel-image/reportSlice';
 import questionReducer from './features/questions/questionSlice';
+import answerReducer from './features/answers/answerSlice';
 
 
 export const store = configureStore({
@@ -16,7 +17,8 @@ export const store = configureStore({
         gallery: galleryReducer,
         faq: faqReducer,
         reports: reportReducer,
-        questions: questionReducer
+        questions: questionReducer,
+        answers: answerReducer
     }
 })
 
