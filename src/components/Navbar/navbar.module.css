@@ -123,3 +123,26 @@
     column-gap: 20px;
     cursor: pointer;
 }
+
+.burder_menu {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navigation, .lng_block {
+        display: none;
+    }
+    .navbar__items {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .burder_menu {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .navbar__item {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+}

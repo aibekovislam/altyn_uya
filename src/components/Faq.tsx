@@ -23,7 +23,7 @@ export default function Faq() {
 
     return (
         <section id='faq' className={styles.faq__block}>
-            <h3 className={styles.section_title}>Вопросы ответы</h3>
+            <h3 className={styles.section_title}>Вопрос / ответ</h3>
             <div className={styles.faq_parent}>
                 <div className='container'>
                     <div className={styles.faq__img_block}>

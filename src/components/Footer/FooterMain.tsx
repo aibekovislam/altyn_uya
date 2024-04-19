@@ -1,10 +1,16 @@
 import React from 'react';
 import styles from './footer.module.css';
 import logo_big from '../../app/assets/svgs/Group 812.svg'
+import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
+import google from '../../app/assets/svgs/social_media/google.svg';
+import whatsapp from '../../app/assets/svgs/social_media/whatsapp.svg';
+import instagram from '../../app/assets/svgs/social_media/instagram.svg';
+import facebook from '../../app/assets/svgs/social_media/facebook.svg';
+import shadow from '../../app/assets/Rectangle 259.png';
 
 export default function FooterMain() {
   return (
-    <section id='footer' className={styles.footer}>
+    <footer id='footer' className={styles.footer}>
         <div className='container'>
             <div className={styles.d_f_footer}>
                 <div className={styles.contact_us_block}>
@@ -22,7 +28,25 @@ export default function FooterMain() {
                     <button>Билдирме</button>
                 </div>
             </div> 
+            <div className={styles.d_f_footer_mobile}>
+                <img src={shadow.src} className={styles.shadow__mobile} />
+                <img src={LogoSVG.src} alt='logo' />
+                <div className={styles.contact_us_mobile}>
+                    <span className={styles.footer_title_mobile}>БИЗ МЕНЕН БАЙЛАНЫШУУ:</span>
+                    <span className={styles.footer_phone_mobile}>+996777377736</span>
+                    <div className={styles.social__medias_mobile}>
+                        <img src={google.src} alt='google' />
+                        <img src={facebook.src} alt='facebook' />
+                        <img src={instagram.src} alt='instagram' />
+                        <img src={whatsapp.src} alt='whatsapp' />
+                    </div>
+                    <div className={styles.info}>
+                        Биздин ушул Qurban.org сайты аркылуу “билдирме” таштасаңыз болот. 
+                    </div>
+                    <button>Билдирме</button>
+                </div>
+            </div>
         </div>
-    </section>
+    </footer>
   )
 }

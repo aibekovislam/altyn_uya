@@ -5,6 +5,7 @@ import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
 import { useRouter } from 'next/navigation';
+import burger_menu from '../../app/assets/svgs/navbar/burger_menu.svg'
 
 export default function Navbar() {
     const [activeNavbar, setActiveItem] = useState('Главная');
@@ -29,6 +30,9 @@ export default function Navbar() {
         <header className={styles.navbar}>
             <div className={styles.container}>
                 <nav className={styles.navbar__items}>
+                    <div className={styles.burder_menu}>
+                        <img src={burger_menu.src} alt='burger menu' />
+                    </div>
                     <div className={styles.navbar__item}>
                         <img src={LogoSVG.src} className={styles.logo} alt='logo navbar' />
                     </div>

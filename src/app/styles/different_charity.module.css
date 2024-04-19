@@ -105,3 +105,28 @@
     align-items: center;
     position: absolute;
 }
+
+.mobile__card_block {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .different_charity_title {
+        display: none;
+    }
+    .card_block {
+        display: none;
+    }
+    .mobile__card_block {
+        display: block;
+    }
+    .card_mobile_slider_item {
+        padding: 60px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .second_different_charity {
+        display: none;
+    }
+}

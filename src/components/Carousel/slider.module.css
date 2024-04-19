@@ -56,3 +56,13 @@
     width: 500px;
     word-wrap: break-word;
 }
+
+
+@media screen and (max-width: 600px) {
+    .slider_container {
+        display: none;
+    }
+    .big_carousel {
+        display: none;
+    }
+}

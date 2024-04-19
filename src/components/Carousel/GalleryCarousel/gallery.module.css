@@ -7,6 +7,11 @@
     font-family: 'Europe Bold', sans-serif;
 }
 
+.gallery_container {
+    max-width: 95%;
+    margin: 0 auto;
+}
+
 .gallery_block {
     margin-top: 300px;
 }
@@ -35,4 +40,34 @@
 
 .gallery_slider {
     width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .gallery_block {
+        margin-top: 100px;
+    }
+    .gallery__item h3 {
+        font-size: 30px;
+        text-align: center !important;
+    }
+    .next, .prev {
+        display: none !important;
+    }
+    .gallery_container {
+        max-width: 100%;
+        margin: 0;
+    }
+    .gallery_img_block {
+        width: 100% !important;
+        height: auto;
+        border-radius: 5px;
+        margin: 0;
+    }
+    .gallery_img_block img {
+        width: 70vw !important;
+        height: auto;
+        object-fit: cover;
+        border-radius: 5px;
+        margin: 0;
+    }
 }
