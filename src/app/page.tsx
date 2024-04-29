@@ -18,14 +18,18 @@ import Faq from "@/components/Faq";
 import Report from "@/components/Carousel/GalleryCarousel/Report";
 import FooterMain from "@/components/Footer/FooterMain";
 import { useRouter } from "next/navigation";
+import './i18n'
+import { useTranslation } from "react-i18next";
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
   display: 'swap'
 })
 
-export default function Home() {
+function Home() {
+  const { t } = useTranslation();
   const navigate = useRouter();
+
   return (
     <>
       <main className={styles.main}>
@@ -37,17 +41,17 @@ export default function Home() {
               </h1>
               <MainCarousel/>
               <div className={styles.additional__info}>
-                <h3 className={styles.additional__heading_text}>Курмандык бул – Аллахтын буйругу!</h3>
-                <p className={styles.additional__heading_description}>Себеби Аллах Таала Пайгамбарыбызга (с.а.в) буйрук кылып айткан: "Эй, Мухаммад! Роббиң үчүн намаз оку жана жандык сой!".</p>
+                <h3 className={styles.additional__heading_text}>{ t("title1") }</h3>
+                <p className={styles.additional__heading_description}>{ t("title2") }</p>
                 <div className={styles.additional__heading_small_text}>
-                  (Кавсар сүрөөсү, 2-аят) 
+                  { t("title3") }
                 </div>
-                <button className={styles.additional__heading_btn} onClick={() => navigate.push('/form')}>Пожертвовать</button>
-                <span className={styles.small__text}>Бул сайт аркылуу курмандык чалдырып, муктаждарга жардам берсеңиз болот.</span>
+                <button className={styles.additional__heading_btn} onClick={() => navigate.push('/form')}>{ t("btn_charity") }</button>
+                <span className={styles.small__text}>{ t("title4") }</span>
               </div>
             </div>
             <div className={styles.float__btn_video}>
-              Презентационный ролик
+                {t("video_title")}
               <img src={video_svg.src} />
             </div>
             <div className={styles.social__medias}>
@@ -72,3 +76,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

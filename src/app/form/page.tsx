@@ -13,6 +13,7 @@ import kicb from '../assets/svgs/billings/kicb.svg';
 import ship from '../assets/Group 967.png'
 import FooterAsk from '@/components/Footer/FooterAsk';
 import FooterMain from '@/components/Footer/FooterMain';
+import '../i18n'
 
 export default function page() {
     const navigate = useRouter();

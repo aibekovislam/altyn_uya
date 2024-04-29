@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './form.module.css';
 import { useDispatch } from 'react-redux';
 import { sendForm } from '@/app/redux/features/form/formSlice';
+import { useTranslation } from 'react-i18next';
 
 export default function Form() {
     const dispatch = useDispatch<any>();
@@ -21,6 +22,9 @@ export default function Form() {
         }))
     }
 
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language;
+
     const handleSendQuestionnaire = (e: React.FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault();
@@ -33,11 +37,11 @@ export default function Form() {
     
     return (
         <form className={styles.form} onSubmit={handleSendQuestionnaire}>
-            <input type='text' onChange={handleChange} value={formValue.name} placeholder='Аты-жөнүңүз:' name='name' className={styles.form_input} />
-            <input type='tel' onChange={handleChange} value={formValue.phone} placeholder='Телефон номериңиз' name='phone' className={styles.form_input} />
-            <input type='text' onChange={handleChange} value={formValue.reaseon} placeholder='Курмандык чалдыруунун ниети' name='reaseon' className={styles.form_input} />
-            <p className={styles.form__text}>Чтобы зарегистрироваться на нашем сайте, вам необходимо заполнить поля.</p>
-            <button className={styles.form__btn}>Регистрация</button>
+            <input type='text' onChange={handleChange} value={formValue.name} placeholder={t("input_placeholder1")} name='name' className={styles.form_input} />
+            <input type='tel' onChange={handleChange} value={formValue.phone} placeholder={t("input_placeholder2")} name='phone' className={styles.form_input} />
+            <input type='text' onChange={handleChange} value={formValue.reaseon} placeholder={t("input_placeholder3")} name='reaseon' className={styles.form_input} />
+            <p className={styles.form__text}>{ t("form_text") }</p>
+            <button className={styles.form__btn}>{ t("registration") }</button>
         </form>
     )
 }

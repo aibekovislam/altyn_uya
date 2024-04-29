@@ -11,6 +11,7 @@ import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
 import dots from '../app/assets/svgs/dots.svg';
 import active_dots from '../app/assets/svgs/active_dots.svg';
+import { useTranslation } from 'react-i18next';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -30,6 +31,7 @@ export default function DifferentCharity() {
   const firstPosts = useSelector((state: RootStates) => state.posts.firstPosts);
   const dispatch = useDispatch<any>();
   const [activeSlide, setActiveSlide] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchFirstPosts());
@@ -57,7 +59,7 @@ export default function DifferentCharity() {
       <div className='container'>
         <div className={styles.d_f_charity}>
           <div className={styles.different_charity_title}>
-            КУРМАНДЫКТЫН ТҮРЛӨРҮ
+            { t("different_charity") }
           </div>
           <div className={styles.card_block}>
             { firstPosts?.map((item: any, index: number) => (

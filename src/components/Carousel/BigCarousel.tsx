@@ -11,6 +11,8 @@ import arrow_next from '../../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../../app/assets/svgs/slider/arrow_prev.svg';
 import { fetchBigCarouselImages } from '@/app/redux/features/main-carousel-image/bigCarousel';
 import { API_URL } from '@/utils/consts';
+import { useTranslation } from 'react-i18next';
+import { getMainTextByLanguage, getTextByLanguage } from '@/app/helpers/lngEffect';
 
 
 function SampleNextArrow(props: any) {
@@ -30,6 +32,9 @@ function SamplePrevArrow(props: any) {
 export default function BigCarousel() {
     const bigImages = useSelector((state: RootStates) => state.bigCarousel.bigCarousel);
     const dispatch = useDispatch<any>()
+    const { t, i18n } = useTranslation();
+
+    const currentLanguage = i18n.language;
 
     useEffect(() => {
         dispatch(fetchBigCarouselImages());
@@ -45,8 +50,6 @@ export default function BigCarousel() {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
     };
-
-    console.log(bigImages)
     
     return (
         <section className={styles.big_carousel}>
@@ -56,8 +59,8 @@ export default function BigCarousel() {
                         <div className={styles.big_img_carousel} key={index}>
                             <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.big_img} alt={item.main_text} />
                             <div className={styles.carousel_content}>
-                                <div className={styles.main__text}>{ item.main_text_kg }</div>
-                                <p className={styles.main_description}>{ item.text_kg }</p>
+                                <div className={styles.main__text}>{ getMainTextByLanguage(item, currentLanguage) }</div>
+                                <p className={styles.main_description}>{ getTextByLanguage(item, currentLanguage) }</p>
                             </div>
                         </div>
                     )) }

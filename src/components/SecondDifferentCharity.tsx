@@ -11,11 +11,13 @@ import facebook from '../app/assets/svgs/social_media/facebook_blue.svg';
 import instagram from '../app/assets/svgs/social_media/instagram_blue.svg';
 import whatsapp from '../app/assets/svgs/social_media/whatsapp_blue.svg';
 import arrowDown from '../app/assets/svgs/arrow_down.svg';
+import { useTranslation } from 'react-i18next';
 
 
 export default function SecondDifferentCharity() {
   const posts = useSelector((state: RootStates) => state.posts.secondPosts);
   const dispatch = useDispatch<any>();
+  const { t } = useTranslation()
 
   useEffect(() => {
     dispatch(fetchSecondPosts());
@@ -28,7 +30,7 @@ export default function SecondDifferentCharity() {
       <div className='container'>
         <div className={styles.second_d_f_charity}>
           <div className={styles.second_different_charity_title}>
-            ШЫПАА КУРМАНДЫГЫ
+            { t("different_charity2") }
           </div>
           <div className={styles.second_card_block}>
             { posts?.map((item: any, index: number) => (
