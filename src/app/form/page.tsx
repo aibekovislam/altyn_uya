@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../app/styles/page.module.css';
 import arrowBack from '../../app/assets/svgs/arrow_back.svg';
 import { useRouter } from 'next/navigation';
@@ -12,9 +12,23 @@ import mbank from '../assets/svgs/billings/mbank.svg';
 import kicb from '../assets/svgs/billings/kicb.svg';
 import ship from '../assets/Group 967.png'
 import FooterAsk from '@/components/Footer/FooterAsk';
+import FooterMain from '@/components/Footer/FooterMain';
 
 export default function page() {
     const navigate = useRouter();
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 600);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
             <section className={styles.form_page}>
@@ -87,7 +101,7 @@ export default function page() {
                     </div>
                     </div>
                 </div>
-                <div className={styles.arrow_down}>
+                <div className={styles.arrow_down} style={ isMobile ? { display: "none" } : {} }>
                     <img src={arrowDown.src} />
                 </div>
             </section>
@@ -101,7 +115,11 @@ export default function page() {
                     </div>
                 </div>
             </section>
-            <FooterAsk/>
+            { isMobile ? (
+                <FooterMain/>
+            ) : (
+                <FooterAsk/>
+            ) }
         </>
     )
 }

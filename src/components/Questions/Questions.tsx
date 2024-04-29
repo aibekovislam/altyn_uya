@@ -22,7 +22,7 @@ import { fetchAnswers } from '@/app/redux/features/answers/answerSlice';
 import { AnswerType } from '@/utils/interfacesAndTypes';
 import { API_URL } from '@/utils/consts';
 
-export default function Questions({ questionRef }: any) {
+export default function Questions() {
     const questions = useSelector((state: RootStates) => state.questions.questions);
     const answers = useSelector((state: RootStates) => state.answers.answers);
     const dispatch = useDispatch<any>();
@@ -53,7 +53,7 @@ export default function Questions({ questionRef }: any) {
     }));   
 
     return (
-        <div className={styles.questions} ref={questionRef}>
+        <div className={styles.questions}>
             { answersWithImages.map((answer: AnswerType, main_index: number) => (
                 main_index <= 2 ? (
                     <div key={main_index} id={`question_${main_index}`} className={`${styles.questions_and_answers} container`}>

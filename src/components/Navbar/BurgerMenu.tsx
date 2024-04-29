@@ -13,9 +13,11 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
     const handleItemClick = (item: string, sectionId: any) => {
         setActiveItem(item);
         setOpenBurgerMenu(false);
-        smoothScroll(sectionId);
         if(item === 'Анкета') {
             navigate.push('/form')
+        } else {
+            navigate.push('/');
+            smoothScroll(sectionId);
         }
     };
 

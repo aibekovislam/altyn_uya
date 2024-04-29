@@ -66,6 +66,9 @@ export default function Home() {
       <Faq/>
       <Report/>
       <FooterMain/>
+      <a href="#" className={'float_whatsapp'}>
+        <img src={whatsapp.src} alt="whatsapp float link" className={'float_img_link'} />
+      </a>
     </>
   );
 }

@@ -5,10 +5,16 @@ import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import { NavbarProps } from './Navbar.props';
 import { useRouter } from 'next/navigation';
+import BurgerMenu from './BurgerMenu';
+import burger_menu from '../../app/assets/svgs/navbar/burger_menu.svg';
+import arrowBack from '../../app/assets/svgs/arrow_back.svg';
+
+
 
 export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' }: NavbarProps) {
   const [activeNavbar, setActiveItem] = useState(selectedSection);
   const navigate = useRouter();
+  const [ openBurgerMenu, setOpenBurgerMenu ] = useState(false);
 
   const handleItemClick = (item: string, sectionId: string) => {
     setActiveItem(item);
@@ -36,7 +42,19 @@ export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' 
   return (
     <header className={styles.ask_block_navbar}>
       <div className='container'>
+          <div className={styles.d_f_burger_menu}>
+            <div className={styles.back_block_ask} onClick={() => navigate.push('/')}>
+              <img src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
+              <span>Назад</span>
+            </div>
+            <div className={styles.burder_menu} onClick={() => setOpenBurgerMenu(true)}>
+              <img src={burger_menu.src} alt='burger menu' />
+            </div>
+          </div>
         <nav className={styles.navigation_ask}>
+          { openBurgerMenu ? (
+              <BurgerMenu openBurgerMenu={openBurgerMenu} setOpenBurgerMenu={setOpenBurgerMenu}/>
+          ) : (null) }
           <div className={styles.links_wrapper}>
             <ul className={styles.navigation__links}>
               <li className={`${styles.navigation__link} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>О нас</li>

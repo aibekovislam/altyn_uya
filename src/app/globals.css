@@ -16,4 +16,29 @@ body {
 .container {
   max-width: 95%;
   margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+.float_whatsapp {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: linear-gradient(90deg, #203F7D 0%, #1AABBE 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.float_img_link {
+  margin-top: 5px;
 }

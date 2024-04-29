@@ -286,4 +286,28 @@
   .main {
     background-position: center;
   }
+  .back_block_ask, .form_and_video__item {
+    display: none;
+  }
+  .form__item {
+    width: 100%;
+  }
+  .arrow_down {
+    margin-top: 100px;
+  }
+  .billing__title h3 {
+    font-size: 15px;
+  }
+  .billings {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+  }
+  .address_info_img img, .address_info_text {
+    display: none;
+  }
+  .address_info {
+    margin: 30px 0px 30px 0px;
+  }
 }

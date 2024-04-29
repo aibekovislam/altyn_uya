@@ -146,6 +146,20 @@
         justify-content: center;
         margin-top: 50px;
     }
+    .navigation__link, .navigation__lng {
+        display: none;
+    }
+    .d_f_burger_menu {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .back_block_ask {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+    }
 }
 
 .burger_menu {
