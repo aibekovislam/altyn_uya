@@ -55,7 +55,7 @@ export default function ReportSlider() {
 
     console.log(reports)
 
-    var desktopSettings = {
+    var settings = {
       dots: false,
       infinite: true,
       speed: 500,
@@ -65,56 +65,35 @@ export default function ReportSlider() {
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+          {
+            breakpoint: 600,
+            settings: {
+              dots: true,
+              className: "center",
+              centerMode: true,
+              infinite: true,
+              centerPadding: "60px",
+              speed: 500,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              initialSlide: 0,
+              nextArrow: <SampleNextArrow />,
+              prevArrow: <SamplePrevArrow />,
+              swipe: true,
+              customPaging: (i: any) => (
+                  <div className="ft-slick__dots--custom">
+                      <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
+                  </div>
+              )
+                }
+          },
+      ],      
     };
 
-    var settings = {
-        dots: true,
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-        swipe: true,
-        customPaging: (i: any) => (
-          <div className="ft-slick__dots--custom">
-              <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
-          </div>
-        )
-    };
     return (
         <section className={styles.gallery_slider}>
             <Slider 
-              {...(isMobile ? settings : desktopSettings)} 
+              {...settings} 
               afterChange={(index) => setActiveSlide(index)}
             >
                 { reports?.map((item: any, index: number) => (

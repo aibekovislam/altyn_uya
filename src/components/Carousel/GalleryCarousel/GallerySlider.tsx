@@ -13,6 +13,7 @@ import { fetchGallery } from '@/app/redux/features/main-carousel-image/galleryCa
 import { API_URL } from '@/utils/consts';
 import dots from '../../../app/assets/svgs/dots.svg';
 import active_dots from '../../../app/assets/svgs/active_dots.svg';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
@@ -52,7 +53,7 @@ export default function GallerySlider() {
         dispatch(fetchGallery())
     }, [dispatch])
 
-    var desktopSettings = {
+    var settings = {
         dots: false,
         infinite: true,
         speed: 500,
@@ -62,64 +63,45 @@ export default function GallerySlider() {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
+            {
+              breakpoint: 600,
+              settings: {
+                dots: true,
+                className: "center",
+                centerMode: true,
+                infinite: true,
+                centerPadding: "60px",
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                nextArrow: <SampleNextArrow />,
+                prevArrow: <SamplePrevArrow />,
+                swipe: true,
+                customPaging: (i: any) => (
+                    <div className="ft-slick__dots--custom">
+                        <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
+                    </div>
+                )
+              }
+            },
+        ],      
     };
-
-    var settings = {
-        dots: true,
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-        swipe: true,
-        customPaging: (i: any) => (
-          <div className="ft-slick__dots--custom">
-              <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
-          </div>
-        )
-    };
+    
     return (
         <section className={styles.gallery_slider}>
-            <Slider 
-                {...(isMobile ? settings : desktopSettings)} 
-                afterChange={(index) => setActiveSlide(index)}
-            >
-                { gallery?.map((item: any, index: number) => (
-                    <div className={styles.gallery_img_block} key={index}>
-                        <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
-                    </div>
-                )) }
-            </Slider>
+            <PhotoProvider>
+                <Slider 
+                    {...settings} 
+                    afterChange={(index) => setActiveSlide(index)}
+                >
+                    { gallery?.map((item: any, index: number) => (
+                        <div className={styles.gallery_img_block} key={index}>
+                            <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
+                        </div>
+                    )) }
+                </Slider>
+            </PhotoProvider>
         </section>
     )
 }

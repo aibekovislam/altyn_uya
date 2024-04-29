@@ -1,7 +1,7 @@
 .different_charity {
     width: 100%;
-    height: auto;
-    margin-top: 50px;
+    height: 100vh;
+    margin-top: 150px;
     position: relative;
 }
 
@@ -128,5 +128,8 @@
     }
     .second_different_charity {
         display: none;
+    }
+    .different_charity {
+        height: auto;
     }
 }

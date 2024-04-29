@@ -22,7 +22,7 @@ export default function FooterAsk() {
     };
 
     return (
-        <footer className={styles.footer_ask_block}>
+        <footer className={styles.footer_ask_block} id='footer'>
             <div className={styles.shadow}></div>
             <div className='container' style={{ position: "relative", zIndex: 3, padding: "50px", display: "flex", flexDirection: "column", rowGap: "60px" }}>
                 <div className={styles.footer_d_f}>
@@ -36,7 +36,7 @@ export default function FooterAsk() {
                     <div className={styles.footer_info_ask}>
                         <img src={logo_big.src} className={styles.logo_ask} />
                         <div className={styles.dop_text_ask}>Биздин ушул Qurban.org сайты аркылуу “билдирме” таштасаңыз болот.</div>
-                        <button><img src={notification.src} alt='notification btn' /> Билдирме</button>
+                        <button onClick={() => navigate.push('/form')}><img src={notification.src} alt='notification btn' /> Билдирме</button>
                     </div>
                 </div>
                 <div className={styles.footer_under}>

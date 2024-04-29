@@ -1,3 +1,5 @@
+'use client'
+
 import Navbar from "@/components/Navbar/Navbar";
 import styles from "./styles/page.module.css";
 import MainCarousel from "@/components/Carousel/MainCarousel";
@@ -15,6 +17,7 @@ import Gallery from "@/components/Carousel/GalleryCarousel/Gallery";
 import Faq from "@/components/Faq";
 import Report from "@/components/Carousel/GalleryCarousel/Report";
 import FooterMain from "@/components/Footer/FooterMain";
+import { useRouter } from "next/navigation";
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
@@ -22,6 +25,7 @@ const europeFont = localFont({
 })
 
 export default function Home() {
+  const navigate = useRouter();
   return (
     <>
       <main className={styles.main}>
@@ -38,7 +42,7 @@ export default function Home() {
                 <div className={styles.additional__heading_small_text}>
                   (Кавсар сүрөөсү, 2-аят) 
                 </div>
-                <button className={styles.additional__heading_btn}>Пожертвовать</button>
+                <button className={styles.additional__heading_btn} onClick={() => navigate.push('/form')}>Пожертвовать</button>
                 <span className={styles.small__text}>Бул сайт аркылуу курмандык чалдырып, муктаждарга жардам берсеңиз болот.</span>
               </div>
             </div>

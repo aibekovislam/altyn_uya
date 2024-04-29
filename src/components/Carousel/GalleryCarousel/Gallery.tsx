@@ -6,7 +6,7 @@ import GallerySlider from './GallerySlider';
 
 export default function Gallery() {
     return (
-        <div className={styles.gallery_block}>
+        <div className={styles.gallery_block} id='gallery'>
             <div className={styles.gallery_container}>
                 <div className={styles.gallery__d_f}>
                     <div className={styles.gallery__item}>

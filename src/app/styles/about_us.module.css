@@ -1,6 +1,6 @@
 .about_us {
     width: 100%;
-    height: auto;
+    height: 100vh;
 }
 
 .about_us__items {
@@ -12,7 +12,7 @@
 .about_us_title {
     font-size: 33px;
     font-weight: 600;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .about_us_cards {
