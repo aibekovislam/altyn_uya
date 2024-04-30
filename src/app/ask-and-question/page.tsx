@@ -8,6 +8,7 @@ import FooterAsk from '@/components/Footer/FooterAsk';
 import { useRouter } from 'next/navigation';
 import FooterMain from '@/components/Footer/FooterMain';
 import { useTranslation } from 'react-i18next';
+import '../i18n'
 
 export default function page() {
   const navigate = useRouter();

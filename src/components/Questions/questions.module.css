@@ -168,3 +168,16 @@
     color: #FFA900;
     font-weight: 500;
 }
+
+.question_mobile {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .question_mobile {
+        display: block;
+    }
+    .questions_and_answers, .questions__with_img, .questions_with_img_dec {
+        display: none;
+    }
+}
