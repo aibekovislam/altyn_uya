@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
+    "canvas-confetti": "^1.9.2",
     "i18next": "^23.11.3",
     "next": "14.1.4",
     "next-translate": "^2.6.2",
@@ -23,6 +24,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

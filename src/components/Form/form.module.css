@@ -36,6 +36,12 @@
     cursor: pointer;
 }
 
+.sended {
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
+
 @media screen and (max-width: 600px) {
     .form {
         width: 100%;
