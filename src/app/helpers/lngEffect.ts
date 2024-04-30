@@ -7,7 +7,7 @@ export const getTextByLanguage = (data: any, currentLanguage: string) => {
       case 'Русский':
         return data.text_ru;
     }
-  };
+};
 
 export const getMainTextByLanguage = (data: any, currentLanguage: string) => {
     switch (currentLanguage) {
@@ -18,4 +18,15 @@ export const getMainTextByLanguage = (data: any, currentLanguage: string) => {
       case 'Русский':
         return data.main_text_ru;
     }
+};
+
+export const getMainThemeByLanguage = (data: any, currentLanguage: string) => {
+  switch (currentLanguage) {
+    case 'Кыргызча':
+      return data.theme_kg;
+    case 'English':
+      return data.theme_en;
+    case 'Русский':
+      return data.theme_ru;
+  }
 };

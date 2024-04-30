@@ -5,10 +5,28 @@ import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import CloseSVG from '../../app/assets/svgs/close-line-icon.svg';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+import Russia from '../../app/assets/svgs/russian.svg';
+import English from '../../app/assets/svgs/english.svg';
 
 export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
     const navigate = useRouter();
     const [activeNavbar, setActiveItem] = useState('Главная');
+    const { t, i18n } = useTranslation();
+    const [language, setLanguage] = useState('Кыргызча');
+    const [languageDropdown, setLanguageDropdown] = useState(false);
+    const currentLanguage = i18n.language;
+
+    const toggleLanguageDropdown = () => {
+        setLanguageDropdown(!languageDropdown);
+    };
+    
+    const handleLanguageChange = (selectedLanguage: string) => {
+        setLanguage(selectedLanguage);
+        setLanguageDropdown(false);
+    
+        i18n.changeLanguage(selectedLanguage);
+    };    
 
     const handleItemClick = (item: string, sectionId: any) => {
         setActiveItem(item);
@@ -32,16 +50,29 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
         <div className={`${styles.burger_menu} ${openBurgerMenu === true ? styles.open : ""}`}>
             <div className='container'>
                 <ul className={styles.burger_menu__items}>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>Главная</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>О нас</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>Вопрос/Ответ</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>Анкета</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>Галерея</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>Контакты</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>{ t("form") }</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</li>
+                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</li>
                 </ul>
-                <div className={styles.lng}>
-                    Кыргызча
-                    <img src={KGLng.src} className={styles.lng_svg} alt='language' />
+                <div className={styles.lng} style={{ justifyContent: "center" }}>
+                    <div className={styles.language_dropdown} onClick={toggleLanguageDropdown} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                        { languageDropdown ? t("choose_language") : language}
+                        {languageDropdown && (
+                            <ul className={styles.language_list}>
+                                <li onClick={() => handleLanguageChange('Русский')} style={{ textAlign: "center" }}>Русский</li>
+                                <li onClick={() => handleLanguageChange('English')} style={{ textAlign: "center" }}>English</li>
+                                <li onClick={() => handleLanguageChange('Кыргызча')} style={{ textAlign: "center" }}>Кыргызча</li>
+                            </ul>
+                        )}
+                    </div>
+                        { languageDropdown ? (
+                            null
+                        ) : (
+                            <img src={currentLanguage === "Кыргызча" ? KGLng.src : currentLanguage === "Русский" ? Russia.src : English.src} className={styles.lng_svg} alt='language' />
+                        ) }
                 </div>
             </div>
             <img src={CloseSVG.src} alt='close svg' className={styles.close_burger_menu} onClick={() => {

@@ -14,8 +14,10 @@ import ship from '../assets/Group 967.png'
 import FooterAsk from '@/components/Footer/FooterAsk';
 import FooterMain from '@/components/Footer/FooterMain';
 import '../i18n'
+import { useTranslation } from 'react-i18next';
 
 export default function page() {
+    const { t } = useTranslation();
     const navigate = useRouter();
     const [isMobile, setIsMobile] = useState(false);
 
@@ -35,10 +37,10 @@ export default function page() {
             <section className={styles.form_page}>
                 <div className='container'>
                     <div className={styles.form_d_f}>
-                        <h2 className={styles.form__title}>АНКЕТА</h2>
+                        <h2 className={styles.form__title}>{ t("form").toLocaleUpperCase() }</h2>
                         <div className={styles.back_block_ask} onClick={() => navigate.push('/')}>
                             <img src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
-                            <span>Назад</span>
+                            <span>{ t("back") }</span>
                         </div>
                         <div className={styles.form_and_video}>
                             <div className={styles.form__item}>
@@ -59,7 +61,7 @@ export default function page() {
                 <div className='container'>
                     <div className={styles.billing_d_f}>
                     <div className={styles.billing__title}>
-                        <h3>КУРМАНДЫК МАЛЫНЫН АКЧАСЫН КОТОРУУ ҮЧҮН, ФОНДДУН РАСМИЙ РЕКВИЗИТТЕРИ:</h3>
+                        <h3>{ t("form_title1") }</h3>
                     </div>
                     <div className={styles.billings}>
                         <div className={styles.billing}>
@@ -112,7 +114,7 @@ export default function page() {
                         <div className={styles.address_info_img}>
                             <img src={ship.src} />
                         </div>
-                        <p className={styles.address_info_text}>Ошондой эле, Бишкек шаары, <span>Мичурин көчөсү 80</span> (Жибек-Жолу/Эркиндик бульвары тарап) дареги боюнча жайгашкан Фонддун кеңсесине келип, кызматкерлерге жекеме-жеке жолугуу мүмкүн.</p>
+                        <p className={styles.address_info_text}>{ t("footer_text1") }</p>
                     </div>
                 </div>
             </section>

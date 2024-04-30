@@ -8,16 +8,20 @@ import { useRouter } from 'next/navigation';
 import burger_menu from '../../app/assets/svgs/navbar/burger_menu.svg'
 import BurgerMenu from './BurgerMenu';
 import { useTranslation } from 'react-i18next';
-import i18n from '@/app/i18n';
+import russianLogo from '../../app/assets/svgs/russian_logo.svg';
+import englishLogo from '../../app/assets/svgs/english_logo.svg';
+import Russia from '../../app/assets/svgs/russian.svg';
+import English from '../../app/assets/svgs/english.svg';
 
 
 export default function Navbar() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [activeNavbar, setActiveItem] = useState('Главная');
     const [ openBurgerMenu, setOpenBurgerMenu ] = useState(false);
     const [language, setLanguage] = useState('Кыргызча');
     const [languageDropdown, setLanguageDropdown] = useState(false);
     const navigate = useRouter();
+    const currentLanguage = i18n.language
 
     const handleItemClick = (item: string, sectionId: any) => {
         setActiveItem(item);
@@ -56,7 +60,7 @@ export default function Navbar() {
                         <BurgerMenu openBurgerMenu={openBurgerMenu} setOpenBurgerMenu={setOpenBurgerMenu}/>
                     ) : (null) }
                     <div className={styles.navbar__item}>
-                        <img src={LogoSVG.src} className={styles.logo} alt='logo navbar' />
+                        <img src={currentLanguage === "Кыргызча" ? LogoSVG.src : currentLanguage === "Русский" ? russianLogo.src : englishLogo.src} className={styles.logo} alt='logo navbar' />
                     </div>
                     <ul className={styles.navigation}>
                         <li className={`${styles.navigation__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</li>
@@ -80,7 +84,7 @@ export default function Navbar() {
                         { languageDropdown ? (
                             null
                         ) : (
-                            <img src={KGLng.src} className={styles.lng_svg} alt='language' />
+                            <img src={currentLanguage === "Кыргызча" ? KGLng.src : currentLanguage === "Русский" ? Russia.src : English.src} className={styles.lng_svg} alt='language' />
                         ) }
                     </div>
                 </nav>

@@ -32,7 +32,8 @@ const resources = {
       "input_placeholder1": "Your full name",
       "input_placeholder2": "Your phone number",
       "input_placeholder3": "Intention of donation",
-      "registration": "Registration"
+      "registration": "Registration",
+      "form_title1": "FOR TRANSFERRING FUNDS FOR THE TREATMENT OF KURMANDYK, OFFICIAL FUND DETAILS"
     }
   },
   "Русский": {
@@ -65,7 +66,8 @@ const resources = {
       "input_placeholder1": "Ваше имя и фамилия",
       "input_placeholder2": "Ваш номер телефона",
       "input_placeholder3": "Намерение жертвования",
-      "registration": "Регистрация"
+      "registration": "Регистрация",
+      "form_title1": "ДЛЯ ПЕРЕДАЧИ СРЕДСТВ НА ЦЕЛИ ЛЕЧЕНИЯ КУРМАНДЫКА, ОФИЦИАЛЬНЫЕ РЕКВИЗИТЫ ФОНДА"
     }
   },
   "Кыргызча": {
@@ -98,7 +100,8 @@ const resources = {
         "input_placeholder1": "Аты-жөнүңүз",
         "input_placeholder2": "Телефон номериңиз",
         "input_placeholder3": "Курмандык чалдыруунун ниети",
-        "registration": "Регистрация"
+        "registration": "Регистрация",
+        "form_title1": "КУРМАНДЫК МАЛЫНЫН АКЧАСЫН КОТОРУУ ҮЧҮН, ФОНДДУН РАСМИЙ РЕКВИЗИТТЕРИ:"
     }
   }
 };

@@ -74,7 +74,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: relative;
 }
 
@@ -125,7 +124,7 @@
     cursor: pointer;
 }
 
-.burder_menu {
+.d_f_burger_menu, .burder_menu {
     display: none;
 }
 
@@ -215,4 +214,5 @@
 
 .language_list li {
     list-style-type: none;
+    cursor: pointer;
 }
