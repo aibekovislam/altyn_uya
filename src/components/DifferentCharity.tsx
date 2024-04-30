@@ -54,8 +54,25 @@ export default function DifferentCharity() {
       )
   };
 
+  const [isMobile, setIsMobile] = useState(() => {
+      if(typeof window !== 'undefined') {
+          return window.innerWidth < 600
+      }
+  });
+
+  useEffect(() => {
+      const handleResize = () => {
+          setIsMobile(window.innerWidth < 600);
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
   return (
-    <section className={styles.different_charity} id='different_charity'>
+    <section className={styles.different_charity} style={ isMobile ? {marginTop: "0px"} : {} } id='different_charity'>
       <div className='container'>
         <div className={styles.d_f_charity}>
           <div className={styles.different_charity_title}>

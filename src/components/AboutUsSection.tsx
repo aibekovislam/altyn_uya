@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react';
 import styles from '../app/styles/about_us.module.css';
 import altyn_logo from '../app/assets/svgs/logoAltyn.svg';
 import pc from '../app/assets/svgs/pc.svg';
@@ -8,9 +10,24 @@ import { useTranslation } from 'react-i18next';
 
 export default function AboutUsSection() {
     const { t } = useTranslation();
+    const [isMobile, setIsMobile] = useState(() => {
+        if(typeof window !== 'undefined') {
+            return window.innerWidth < 600
+        }
+    });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 600);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
-        <section className={styles.about_us} id='about_us'>
+        <section className={styles.about_us} style={ isMobile ? { height: 'auto' } : {} } id='about_us'>
             <div className='container'>
                 <div className={styles.about_us__items}>
                     <div className={styles.about_us_title}>{ t("about") }</div>

@@ -56,52 +56,52 @@ export default function ReportSlider() {
     console.log(reports)
 
     var settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-          {
-            breakpoint: 600,
-            settings: {
-              dots: true,
-              className: "center",
-              centerMode: true,
-              infinite: true,
-              centerPadding: "60px",
-              speed: 500,
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              initialSlide: 0,
-              nextArrow: <SampleNextArrow />,
-              prevArrow: <SamplePrevArrow />,
-              swipe: true,
-              customPaging: (i: any) => (
-                  <div className="ft-slick__dots--custom">
-                      <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
-                  </div>
-              )
-                }
-          },
-      ],      
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                dots: true,
+                className: "center",
+                centerMode: true,
+                infinite: true,
+                centerPadding: "45px",
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                initialSlide: 0,
+                nextArrow: <SampleNextArrow />,
+                prevArrow: <SamplePrevArrow />,
+                swipe: true,
+                customPaging: (i: any) => (
+                    <div className="ft-slick__dots--custom">
+                        <img src={i === activeSlide ? active_dots.src : dots.src} alt='dots' />
+                    </div>
+                )
+              }
+            },
+        ],      
     };
 
     return (
         <section className={styles.gallery_slider}>
-            <Slider 
-              {...settings} 
-              afterChange={(index) => setActiveSlide(index)}
-            >
-                { reports?.map((item: any, index: number) => (
-                    <div className={styles.gallery_img_block} key={index}>
-                        <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
-                    </div>
-                )) }
-            </Slider>
+                <Slider 
+                    {...settings} 
+                    afterChange={(index) => setActiveSlide(index)}
+                >
+                    { reports?.map((item: any, index: number) => (
+                        <div className={styles.gallery_img_block} key={index}>
+                            <img src={`${API_URL}/${item.image.slice(16)}`} alt='reports'/>
+                        </div>
+                    )) }
+                </Slider>
         </section>
     )
 }
