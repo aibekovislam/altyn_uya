@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './footer.module.css';
 import logo_big from '../../app/assets/svgs/Group 812.svg'
 import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
@@ -12,13 +12,30 @@ import phone from '../../app/assets/svgs/social_media/Vector (25).svg';
 import shadow from '../../app/assets/Rectangle 259.png';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function FooterMain() {
     const navigate = useRouter();
     const { t } = useTranslation();
+    const control = useAnimation()
+    const [ref, inView] = useInView();
+
+    const boxVariant = {
+        visible: { opacity: 1, transition: { duration: 1 } },
+        hidden: { opacity: 0 },
+      }  
+    
+    useEffect(() => {
+        if (inView) {
+          control.start("visible");
+        } 
+    }, [control, inView]);
 
     return (
-        <footer id='footer' className={styles.footer}>
+        <motion.footer ref={ref} 
+        variants={boxVariant} initial="hidden"
+        animate={control} id='footer' className={styles.footer}>
             <div className='container'>
                 <div className={styles.d_f_footer}>
                     <div className={styles.contact_us_block}>
@@ -55,6 +72,6 @@ export default function FooterMain() {
                     </div>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     )
 }

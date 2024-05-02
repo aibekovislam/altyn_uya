@@ -11,6 +11,7 @@ import { fetchMainImagesCarousel } from '@/app/redux/features/main-carousel-imag
 import arrow_next from '../../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../../app/assets/svgs/slider/arrow_prev.svg';
 import { API_URL } from '@/utils/consts';
+import Loading from '@/app/Loading';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -72,14 +73,20 @@ export default function MainCarousel() {
     };
 
     return (
-        <div className={styles.slider_container}>
-          <Slider {...settings}>
-            { carouselImages?.map((item, index) => (
-              <div key={index} className={styles.carousel__item}>
-                <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.carousel__item_img} />
-              </div>
-            )) }
-          </Slider>
-        </div>
+        carouselImages?.length !== 0 ? (
+          <div className={`${styles.slider_container} animate__animated animate__fadeInDown`}>
+            <Slider {...settings}>
+              { carouselImages?.map((item, index) => (
+                <div key={index} className={styles.carousel__item}>
+                  <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.carousel__item_img} />
+                </div>
+              )) }
+            </Slider>
+          </div>
+        ) : (
+          <div className={styles.loading_block}>
+            <Loading/>
+          </div>
+        )
     );
 }

@@ -18,6 +18,7 @@ export default function Navbar() {
     const { t, i18n } = useTranslation();
     const [activeNavbar, setActiveItem] = useState('Главная');
     const [ openBurgerMenu, setOpenBurgerMenu ] = useState(false);
+    const [ closed, setClosed ] = useState(false);
     const [language, setLanguage] = useState('Кыргызча');
     const [languageDropdown, setLanguageDropdown] = useState(false);
     const navigate = useRouter();
@@ -50,14 +51,14 @@ export default function Navbar() {
     };
 
     return (
-        <header className={styles.navbar}>
+        <header className={`${styles.navbar}`}>
             <div className={styles.container}>
                 <nav className={styles.navbar__items}>
                     <div className={styles.burder_menu} onClick={() => setOpenBurgerMenu(true)}>
                         <img src={burger_menu.src} alt='burger menu' />
                     </div>
                     { openBurgerMenu ? (
-                        <BurgerMenu openBurgerMenu={openBurgerMenu} setOpenBurgerMenu={setOpenBurgerMenu}/>
+                        <BurgerMenu openBurgerMenu={openBurgerMenu} setOpenBurgerMenu={setOpenBurgerMenu} closed={closed} setClosed={setClosed} />
                     ) : (null) }
                     <div className={styles.navbar__item}>
                         <img src={currentLanguage === "Кыргызча" ? LogoSVG.src : currentLanguage === "Русский" ? russianLogo.src : englishLogo.src} className={styles.logo} alt='logo navbar' />

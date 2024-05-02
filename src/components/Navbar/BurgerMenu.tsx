@@ -47,7 +47,7 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
     };
 
     return (
-        <div className={`${styles.burger_menu} ${openBurgerMenu === true ? styles.open : ""}`}>
+        <div className={`${styles.burger_menu} ${openBurgerMenu ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}`}>
             <div className='container'>
                 <ul className={styles.burger_menu__items}>
                     <li className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</li>
@@ -59,7 +59,7 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
                 </ul>
                 <div className={styles.lng} style={{ justifyContent: "center" }}>
                     <div className={styles.language_dropdown} onClick={toggleLanguageDropdown} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                        { languageDropdown ? t("choose_language") : language}
+                        { languageDropdown ? t("choose_language") : i18n.language}
                         {languageDropdown && (
                             <ul className={styles.language_list}>
                                 <li onClick={() => handleLanguageChange('Русский')} style={{ textAlign: "center" }}>Русский</li>

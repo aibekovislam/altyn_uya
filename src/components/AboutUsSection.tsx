@@ -7,14 +7,29 @@ import pc from '../app/assets/svgs/pc.svg';
 import mobile from '../app/assets/svgs/mobile.svg';
 import arrowDown from '../app/assets/svgs/arrow_down.svg';
 import { useTranslation } from 'react-i18next';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function AboutUsSection() {
+    const control = useAnimation()
+    const [ref, inView] = useInView()
     const { t } = useTranslation();
     const [isMobile, setIsMobile] = useState(() => {
         if(typeof window !== 'undefined') {
             return window.innerWidth < 600
         }
     });
+
+    const boxVariant = {
+        visible: { opacity: 1, transition: { duration: 1 } },
+        hidden: { opacity: 0 },
+      }  
+    
+    useEffect(() => {
+        if (inView) {
+          control.start("visible");
+        } 
+    }, [control, inView]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -27,7 +42,12 @@ export default function AboutUsSection() {
     }, []);
 
     return (
-        <section className={styles.about_us} style={ isMobile ? { height: 'auto' } : {} } id='about_us'>
+        <motion.section 
+            ref={ref} 
+            variants={boxVariant} initial="hidden"
+            animate={control} 
+            className={`${styles.about_us}`} style={ isMobile ? { height: 'auto' } : {} } 
+            id='about_us'>
             <div className='container'>
                 <div className={styles.about_us__items}>
                     <div className={styles.about_us_title}>{ t("about") }</div>
@@ -56,6 +76,6 @@ export default function AboutUsSection() {
                     <img src={arrowDown.src} />
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

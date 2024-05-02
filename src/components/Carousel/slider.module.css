@@ -57,12 +57,23 @@
     word-wrap: break-word;
 }
 
+.loading_block {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
 
 @media screen and (max-width: 600px) {
     .slider_container {
         display: none;
     }
     .big_carousel {
+        display: none;
+    }
+    .loading_block {
         display: none;
     }
 }

@@ -18,7 +18,8 @@ import Faq from "@/components/Faq";
 import Report from "@/components/Carousel/GalleryCarousel/Report";
 import FooterMain from "@/components/Footer/FooterMain";
 import { useRouter } from "next/navigation";
-import './i18n'
+import './i18n';
+import 'animate.css';
 import { useTranslation } from "react-i18next";
 
 const europeFont = localFont({
@@ -33,34 +34,34 @@ function Home() {
   return (
     <>
       <main className={styles.main}>
-        <Navbar/>
-        <div className='container'>
-            <div className={styles.title_and_carousel}>
-              <h1 className={`${styles.main_title} ${europeFont.className}`}>
-                QURBAN
-              </h1>
-              <MainCarousel/>
-              <div className={styles.additional__info}>
-                <h3 className={styles.additional__heading_text}>{ t("title1") }</h3>
-                <p className={styles.additional__heading_description}>{ t("title2") }</p>
-                <div className={styles.additional__heading_small_text}>
-                  { t("title3") }
+          <Navbar/>
+          <div className='container'>
+              <div className={styles.title_and_carousel}>
+                <h1 className={`${styles.main_title} ${europeFont.className} animate__animated animate__fadeInDown`}>
+                  QURBAN
+                </h1>
+                <MainCarousel/>
+                <div className={styles.additional__info}>
+                  <h3 className={`${styles.additional__heading_text} animate__animated animate__fadeInDown`}>{ t("title1") }</h3>
+                  <p className={`${styles.additional__heading_description} animate__animated animate__fadeInDown`}>{ t("title2") }</p>
+                  <div className={`${styles.additional__heading_small_text} animate__animated animate__fadeInDown`}>
+                    { t("title3") }
+                  </div>
+                  <button className={`${styles.additional__heading_btn} animate__animated animate__fadeInDown`} onClick={() => navigate.push('/form')}>{ t("btn_charity") }</button>
+                  <span className={styles.small__text}>{ t("title4") }</span>
                 </div>
-                <button className={styles.additional__heading_btn} onClick={() => navigate.push('/form')}>{ t("btn_charity") }</button>
-                <span className={styles.small__text}>{ t("title4") }</span>
               </div>
-            </div>
-            <div className={styles.float__btn_video}>
-                {t("video_title")}
-              <img src={video_svg.src} />
-            </div>
-            <div className={styles.social__medias}>
-              <img src={google.src} />
-              <img src={facebook.src} />
-              <img src={instagram.src} />
-              <img src={whatsapp.src} />
-            </div>
-        </div>
+              <div className={`${styles.float__btn_video} animate__animated animate__fadeIn`}>
+                  {t("video_title")}
+                <img src={video_svg.src} />
+              </div>
+              <div className={`${styles.social__medias} animate__animated animate__fadeIn`}>
+                <img src={google.src} />
+                <img src={facebook.src} />
+                <img src={instagram.src} />
+                <img src={whatsapp.src} />
+              </div>
+          </div>
       </main>
       <AboutUsSection/>
       <DifferentCharity/>

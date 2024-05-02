@@ -33,22 +33,7 @@ export default function GallerySlider() {
     const [activeSlide, setActiveSlide] = useState(0);
     const gallery = useSelector((state: RootStates) => state.gallery.galleryImages);
     const dispatch = useDispatch<any>()
-    const [isMobile, setIsMobile] = useState(() => {
-        if(typeof window !== 'undefined') {
-            return window.innerWidth < 520
-        }
-    });
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 520);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
+    
     useEffect(() => {
         dispatch(fetchGallery())
     }, [dispatch])

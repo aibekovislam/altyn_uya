@@ -12,21 +12,37 @@ import instagram from '../app/assets/svgs/social_media/instagram_blue.svg';
 import whatsapp from '../app/assets/svgs/social_media/whatsapp_blue.svg';
 import arrowDown from '../app/assets/svgs/arrow_down.svg';
 import { useTranslation } from 'react-i18next';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 
 export default function SecondDifferentCharity() {
   const posts = useSelector((state: RootStates) => state.posts.secondPosts);
   const dispatch = useDispatch<any>();
   const { t } = useTranslation()
+  const control = useAnimation()
+  const [ref, inView] = useInView()
 
   useEffect(() => {
     dispatch(fetchSecondPosts());
   }, [])
 
-  console.log(posts)
+  const boxVariant = {
+    visible: { opacity: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0 },
+  }  
+
+  useEffect(() => {
+      if (inView) {
+        control.start("visible");
+      } 
+  }, [control, inView]);
 
   return (
-    <section className={styles.second_different_charity} id='different_charity'>
+    <motion.section ref={ref}
+    variants={boxVariant}
+    initial="hidden"
+    animate={control} className={styles.second_different_charity} id='different_charity'>
       <div className='container'>
         <div className={styles.second_d_f_charity}>
           <div className={styles.second_different_charity_title}>
@@ -53,6 +69,6 @@ export default function SecondDifferentCharity() {
       <div className={styles.arrow_down}>
         <img src={arrowDown.src} />
       </div>
-    </section>
+    </motion.section>
   )
 }

@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 import styles from '../app/styles/different_charity.module.css';
 import Card from './MainCard/Card';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,6 +34,8 @@ export default function DifferentCharity() {
   const dispatch = useDispatch<any>();
   const [activeSlide, setActiveSlide] = useState(0);
   const { t } = useTranslation();
+  const control = useAnimation()
+  const [ref, inView] = useInView()
 
   useEffect(() => {
     dispatch(fetchFirstPosts());
@@ -70,9 +74,27 @@ export default function DifferentCharity() {
       return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const boxVariant = {
+    visible: { opacity: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0 },
+  }  
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } 
+  }, [control, inView]);
 
   return (
-    <section className={styles.different_charity} style={ isMobile ? {marginTop: "0px"} : {} } id='different_charity'>
+    <motion.section 
+      ref={ref}
+      variants={boxVariant}
+      initial="hidden"
+      animate={control}
+      className={`${styles.different_charity}`}
+      style={ isMobile ? {marginTop: "0px"} : {} } 
+      id='different_charity'
+    >
       <div className='container'>
         <div className={styles.d_f_charity}>
           <div className={styles.different_charity_title}>
@@ -96,6 +118,6 @@ export default function DifferentCharity() {
           )) }
         </Slider>
         </div>
-    </section>
+    </motion.section>
   )
 }

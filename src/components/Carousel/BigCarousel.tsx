@@ -13,6 +13,8 @@ import { fetchBigCarouselImages } from '@/app/redux/features/main-carousel-image
 import { API_URL } from '@/utils/consts';
 import { useTranslation } from 'react-i18next';
 import { getMainTextByLanguage, getTextByLanguage } from '@/app/helpers/lngEffect';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 
 function SampleNextArrow(props: any) {
@@ -33,6 +35,8 @@ export default function BigCarousel() {
     const bigImages = useSelector((state: RootStates) => state.bigCarousel.bigCarousel);
     const dispatch = useDispatch<any>()
     const { t, i18n } = useTranslation();
+    const control = useAnimation()
+    const [ref, inView] = useInView()
 
     const currentLanguage = i18n.language;
 
@@ -51,8 +55,25 @@ export default function BigCarousel() {
         prevArrow: <SamplePrevArrow />,
     };
     
+    const boxVariant = {
+        visible: { opacity: 1, transition: { duration: 1 } },
+        hidden: { opacity: 0 },
+    }  
+    
+    useEffect(() => {
+        if (inView) {
+          control.start("visible");
+        } 
+    }, [control, inView]);
+
     return (
-        <section className={styles.big_carousel}>
+        <motion.section
+            ref={ref}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control}
+            className={styles.big_carousel}
+        >
             <div className='slider-container'>
                 <Slider { ...settings } >
                     { bigImages?.map((item: any, index: number) => (
@@ -66,6 +87,6 @@ export default function BigCarousel() {
                     )) }
                 </Slider>
             </div>
-        </section>
+        </motion.section>
     )
 }
