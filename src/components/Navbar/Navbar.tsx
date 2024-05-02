@@ -60,22 +60,22 @@ export default function Navbar() {
                     { openBurgerMenu ? (
                         <BurgerMenu openBurgerMenu={openBurgerMenu} setOpenBurgerMenu={setOpenBurgerMenu} closed={closed} setClosed={setClosed} />
                     ) : (null) }
-                    <div className={styles.navbar__item}>
+                    <div className={`${styles.navbar__item} animate__animated animate__fadeInDown`}>
                         <img src={currentLanguage === "Кыргызча" ? LogoSVG.src : currentLanguage === "Русский" ? russianLogo.src : englishLogo.src} className={styles.logo} alt='logo navbar' />
                     </div>
                     <ul className={styles.navigation}>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</li>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</li>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</li>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>{ t("form") }</li>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</li>
-                        <li className={`${styles.navigation__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</li>
+                        <a className={`${styles.navigation__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</a>
+                        <a className={`${styles.navigation__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</a>
+                        <a className={`${styles.navigation__item} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a>
+                        <a href='/form' className={`${styles.navigation__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`}>{ t("form") }</a>
+                        <a className={`${styles.navigation__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</a>
+                        <a className={`${styles.navigation__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>
                     </ul>
                     <div className={styles.lng_block}>
-                        <div className={styles.language_dropdown} onClick={toggleLanguageDropdown}>
+                        <div className={`${styles.language_dropdown}`} onClick={toggleLanguageDropdown}>
                             { languageDropdown ? t("choose_language") : language}
                             {languageDropdown && (
-                                <ul className={styles.language_list}>
+                                <ul className={`${styles.language_list} animate__animated animate__fadeIn`}>
                                     <li onClick={() => handleLanguageChange('Русский')}>Русский</li>
                                     <li onClick={() => handleLanguageChange('English')}>English</li>
                                     <li onClick={() => handleLanguageChange('Кыргызча')}>Кыргызча</li>

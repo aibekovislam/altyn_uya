@@ -61,7 +61,7 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
                     <div className={styles.language_dropdown} onClick={toggleLanguageDropdown} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                         { languageDropdown ? t("choose_language") : i18n.language}
                         {languageDropdown && (
-                            <ul className={styles.language_list}>
+                            <ul className={`${styles.language_list} animate__animated animate__fadeInDown`}>
                                 <li onClick={() => handleLanguageChange('Русский')} style={{ textAlign: "center" }}>Русский</li>
                                 <li onClick={() => handleLanguageChange('English')} style={{ textAlign: "center" }}>English</li>
                                 <li onClick={() => handleLanguageChange('Кыргызча')} style={{ textAlign: "center" }}>Кыргызча</li>

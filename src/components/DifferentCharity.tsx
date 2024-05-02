@@ -7,7 +7,7 @@ import styles from '../app/styles/different_charity.module.css';
 import Card from './MainCard/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
-import { fetchFirstPosts } from '@/app/redux/features/cards/postSlice';
+import { fetchFirstPosts, fetchSecondPosts } from '@/app/redux/features/cards/postSlice';
 import Slider from 'react-slick';
 import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
@@ -31,6 +31,7 @@ function SamplePrevArrow(props: any) {
 
 export default function DifferentCharity() {
   const firstPosts = useSelector((state: RootStates) => state.posts.firstPosts);
+  const secondPosts = useSelector((state: RootStates) => state.posts.secondPosts);
   const dispatch = useDispatch<any>();
   const [activeSlide, setActiveSlide] = useState(0);
   const { t } = useTranslation();
@@ -39,11 +40,15 @@ export default function DifferentCharity() {
 
   useEffect(() => {
     dispatch(fetchFirstPosts());
+    if(secondPosts.length === 0) {
+      dispatch(fetchSecondPosts());
+    }
   }, [])
 
+  
   var settings = {
       dots: true,
-      infinite: false,
+      infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -60,13 +65,13 @@ export default function DifferentCharity() {
 
   const [isMobile, setIsMobile] = useState(() => {
       if(typeof window !== 'undefined') {
-          return window.innerWidth < 600
+          return window.innerWidth < 570
       }
   });
 
   useEffect(() => {
       const handleResize = () => {
-          setIsMobile(window.innerWidth < 600);
+          setIsMobile(window.innerWidth < 570);
       };
 
       window.addEventListener('resize', handleResize);
@@ -111,7 +116,7 @@ export default function DifferentCharity() {
       </div>
       <div className={styles.mobile__card_block}>
         <Slider {...settings} afterChange={(index) => setActiveSlide(index)}>
-          { firstPosts?.map((item: any, index: number) => (
+          { [...firstPosts, ...secondPosts]?.map((item: any, index: number) => (
             <div className={styles.card_mobile_slider_item} key={index}>
               <Card firstPost={item}/>
             </div>

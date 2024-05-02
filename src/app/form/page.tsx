@@ -15,6 +15,7 @@ import FooterAsk from '@/components/Footer/FooterAsk';
 import FooterMain from '@/components/Footer/FooterMain';
 import '../i18n'
 import { useTranslation } from 'react-i18next';
+import 'animate.css';
 
 export default function page() {
     const { t } = useTranslation();

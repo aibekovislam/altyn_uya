@@ -16,7 +16,7 @@ export default function AboutUsSection() {
     const { t } = useTranslation();
     const [isMobile, setIsMobile] = useState(() => {
         if(typeof window !== 'undefined') {
-            return window.innerWidth < 600
+            return window.innerWidth < 620
         }
     });
 
@@ -33,7 +33,7 @@ export default function AboutUsSection() {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 600);
+            setIsMobile(window.innerWidth < 570);
         };
 
         window.addEventListener('resize', handleResize);
@@ -46,7 +46,7 @@ export default function AboutUsSection() {
             ref={ref} 
             variants={boxVariant} initial="hidden"
             animate={control} 
-            className={`${styles.about_us}`} style={ isMobile ? { height: 'auto' } : {} } 
+            className={`${styles.about_us}`}
             id='about_us'>
             <div className='container'>
                 <div className={styles.about_us__items}>

@@ -310,4 +310,7 @@
   .address_info {
     margin: 30px 0px 30px 0px;
   }
+  .form__title {
+    font-size: 32px;
+  }
 }

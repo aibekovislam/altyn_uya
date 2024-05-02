@@ -34,6 +34,8 @@
     user-select: none;
     position: relative;
     transition: all 0.3s;
+    text-decoration: none;
+    color: black;
 }
 
 .navigation__item::after {
@@ -62,6 +64,7 @@
     user-select: none;
     height: max-content;
     padding-top: 20px;
+    user-select: none;
 }
 
 /* Navbar блока ask and question  */
@@ -95,6 +98,8 @@
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
+    text-decoration: none;
+    color: black;
 }
 
 .navigation__link::after {
@@ -122,6 +127,7 @@
     align-items: center;
     column-gap: 20px;
     cursor: pointer;
+    user-select: none;
 }
 
 .d_f_burger_menu, .burder_menu {
@@ -192,8 +198,8 @@
     font-weight: 500;
     font-size: 22px;
     column-gap: 10px;
-    cursor: pointer;
     margin-top: 70px;
+    user-select: none;
 }
 
 .close_burger_menu {
@@ -202,7 +208,6 @@
     right: 30px;
     width: 35px;
     height: 35px;
-    cursor: pointer;
 }
 
 .language_list {
@@ -210,6 +215,7 @@
     flex-direction: column;
     row-gap: 10px;
     margin-top: 10px;
+    user-select: none;
 }
 
 .language_list li {

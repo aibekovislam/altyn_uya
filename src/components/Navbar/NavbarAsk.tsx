@@ -74,18 +74,18 @@ export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' 
           ) : (null) }
           <div className={styles.links_wrapper}>
             <ul className={styles.navigation__links}>
-              <li className={`${styles.navigation__link} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</li>
-              <li className={`${styles.navigation__link} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'ask_and_questions')}>{ t("faq") }</li>
-              <li className={`${styles.navigation__link} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'form')}>{ t("form") }</li>
-              <li className={`${styles.navigation__link} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</li>
-              <li className={`${styles.navigation__link} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</li>
+              <a href='/' className={`${styles.navigation__link} ${activeNavbar === 'О нас' && styles.active_navbar}`}>{ t("about") }</a>
+              <a className={`${styles.navigation__link} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'ask_and_questions')}>{ t("faq") }</a>
+              <a className={`${styles.navigation__link} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'form')}>{ t("form") }</a>
+              <a href='/' className={`${styles.navigation__link} ${activeNavbar === 'Галерея' && styles.active_navbar}`}>{ t("gallery") }</a>
+              <a className={`${styles.navigation__link} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>
             </ul>
           </div>
           <div className={styles.navigation__lng}>
-            <div className={styles.language_dropdown} onClick={toggleLanguageDropdown}>
+            <div className={`${styles.language_dropdown}`} onClick={toggleLanguageDropdown}>
               { languageDropdown ? t("choose_language") : language}
               {languageDropdown && (
-                <ul className={styles.language_list}>
+                <ul className={`${styles.language_list} animate__animated animate__fadeIn`}>
                   <li onClick={() => handleLanguageChange('Русский')}>Русский</li>
                   <li onClick={() => handleLanguageChange('English')}>English</li>
                   <li onClick={() => handleLanguageChange('Кыргызча')}>Кыргызча</li>
