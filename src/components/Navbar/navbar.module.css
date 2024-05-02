@@ -181,7 +181,9 @@
     align-items: center;
 }
 
-.burger_menu__items li {
+.burger_menu__item {
+    text-decoration: none;
+    color: white;
     list-style-type: none;
     color: white;
     font-weight: 500;
@@ -189,6 +191,9 @@
     cursor: pointer;
     margin-bottom: 30px;
     text-align: center;
+    text-decoration: none;
+    color: white;
+    display: block;
 }
 
 .lng {

@@ -50,12 +50,12 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
         <div className={`${styles.burger_menu} ${openBurgerMenu ? "animate__animated animate__fadeIn" : "animate__animated animate__fadeOut"}`}>
             <div className='container'>
                 <ul className={styles.burger_menu__items}>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>{ t("form") }</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</li>
-                    <li className={`${styles.burger_menu__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</li>
+                    <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`}>{ t("home") }</a>
+                    <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</a>
+                    <a href='/app/ask-and-question' className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a>
+                    <a className={`${styles.burger_menu__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>{ t("form") }</a>
+                    <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</a>
+                    <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>
                 </ul>
                 <div className={styles.lng} style={{ justifyContent: "center" }}>
                     <div className={styles.language_dropdown} onClick={toggleLanguageDropdown} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
