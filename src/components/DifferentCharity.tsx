@@ -8,7 +8,7 @@ import Card from './MainCard/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStates } from '@/app/redux/store';
 import { fetchFirstPosts, fetchSecondPosts } from '@/app/redux/features/cards/postSlice';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import arrow_next from '../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../app/assets/svgs/slider/arrow_prev.svg';
 import dots from '../app/assets/svgs/dots.svg';
@@ -115,13 +115,13 @@ export default function DifferentCharity() {
         </div>
       </div>
       <div className={styles.mobile__card_block}>
-        <Slider {...settings} afterChange={(index) => setActiveSlide(index)}>
+        {/* <Slider {...settings} afterChange={(index) => setActiveSlide(index)}> */}
           { [...firstPosts, ...secondPosts]?.map((item: any, index: number) => (
             <div className={styles.card_mobile_slider_item} key={index}>
               <Card firstPost={item}/>
             </div>
           )) }
-        </Slider>
+        {/* </Slider> */}
         </div>
     </motion.section>
   )

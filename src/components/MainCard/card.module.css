@@ -44,8 +44,13 @@
 
 @media screen and (max-width: 600px) {
     .card {
-        width: 260px;
+        width: 80%;
         height: auto;
+        border-radius: 5px;
+    }
+    .card img {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
     }
     .main_text_card {
         font-size: 14px;
@@ -62,6 +67,7 @@
         height: 40px;
         font-size: 12px;
         column-gap: 10px;
+        border-radius: 3px;
     }
     .card_btn img {
         width: 25px;

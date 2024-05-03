@@ -52,7 +52,7 @@ export default function BurgerMenu({ openBurgerMenu, setOpenBurgerMenu }: any) {
                 <ul className={styles.burger_menu__items}>
                     <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Главная' && styles.active_navbar}`}>{ t("home") }</a>
                     <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</a>
-                    <a href='/app/ask-and-question' className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a>
+                    <a href='/ask-and-question' className={`${styles.burger_menu__item} ${activeNavbar === 'Вопрос/Ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a>
                     <a className={`${styles.burger_menu__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'survey')}>{ t("form") }</a>
                     <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</a>
                     <a href='/' className={`${styles.burger_menu__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>

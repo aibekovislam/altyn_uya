@@ -150,10 +150,12 @@
         display: none;
     }
     .mobile__card_block {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+        width: 100%;
     }
     .card_mobile_slider_item {
-        padding: 60px;
         display: flex !important;
         justify-content: center;
         align-items: center;
@@ -163,5 +165,6 @@
     }
     .different_charity {
         height: auto;
+        margin-top: 50px;
     }
 }
