@@ -40,10 +40,10 @@ export default function page() {
                 <div className='container'>
                     <div className={styles.form_d_f}>
                         <h2 className={styles.form__title}>{ t("form").toLocaleUpperCase() }</h2>
-                        <div className={styles.back_block_ask} onClick={() => navigate.push('/')}>
+                        <a href='/' style={{ textDecoration: "none", color: "black" }} className={styles.back_block_ask}>
                             <img src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
                             <span>{ t("back") }</span>
-                        </div>
+                        </a>
                         <div className={styles.form_and_video}>
                             <div className={styles.form__item} style={ sendedForm ? { width: "100%" } : {} }>
                                 <Form sendedForm={sendedForm} setSendedForm={setSendedForm} />

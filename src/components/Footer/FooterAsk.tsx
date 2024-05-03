@@ -42,10 +42,10 @@ export default function FooterAsk() {
                     </div>
                 </div>
                 <div className={styles.footer_under}>
-                    <div className={styles.back_block_ask} onClick={() => navigate.push('/')}>
+                    <a href='/' style={{ textDecoration: "none", color: "black" }} className={styles.back_block_ask}>
                         <img src={arrowDown.src} alt='back arrow' className={styles.arrow_back_img_ask} />
                         <span>{ t("back") }</span>
-                    </div>
+                    </a>
                     <p>{ t("footer_text1") }</p>
                     <div className={styles.contact_us}>altynuyakg@gmail.com</div>
                     <div className={styles.up_block} onClick={scrollToTop}>

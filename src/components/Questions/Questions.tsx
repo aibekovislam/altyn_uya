@@ -24,6 +24,7 @@ import { API_URL } from '@/utils/consts';
 import { getMainThemeByLanguage, getTextByLanguage } from '@/app/helpers/lngEffect';
 import { useTranslation } from 'react-i18next';
 import QuestionsMobile from './QuestionsMobile';
+import Loading from '@/app/Loading';
 
 export default function Questions() {
     const questions = useSelector((state: RootStates) => state.questions.questions);
@@ -73,112 +74,118 @@ export default function Questions() {
     const currentLanguage = i18n.language;
 
     return (
-        <div className={styles.questions}>
-            <QuestionsMobile answersWithImages={answersWithImages} questions={questions} data={data} />
-            { answersWithImages.map((answer: AnswerType, main_index: number) => (
-                main_index <= 2 ? (
-                    <div key={main_index} id={`question_${main_index}`} className={`${styles.questions_and_answers} container`}>
-                        <div className={styles.questions__item}>
-                            <h2 className={styles.question__title}>{ questions[answer.question]?.text_kg ? getTextByLanguage(questions[answer.question], currentLanguage) : "" }</h2>
-                        </div>
-                        <div className={styles.questions__item}>
-                            <div className={styles.question__typography}>
-                                <p className={styles.question__description} style={ main_index === 2 ? { maxWidth: "500px", marginTop: "30px" } : {} }>
-                                    { getMainThemeByLanguage(answer, currentLanguage) }
-                                </p>
+        answersWithImages.length !== 0 ? (
+            <div className={styles.questions}>
+                <QuestionsMobile answersWithImages={answersWithImages} questions={questions} data={data} />
+                { answersWithImages.map((answer: AnswerType, main_index: number) => (
+                    main_index <= 2 ? (
+                        <div key={main_index} id={`question_${main_index}`} className={`${styles.questions_and_answers} container`}>
+                            <div className={styles.questions__item}>
+                                <h2 className={styles.question__title}>{ questions[answer.question]?.text_kg ? getTextByLanguage(questions[answer.question], currentLanguage) : "" }</h2>
                             </div>
-                        </div>
-                        <div className={styles.questions__item_asnwers} style={ main_index === 1 ? { marginTop: "100px" } : main_index === 2 ? { } : {} }>
-                            <div className={styles.answers__for__questions}>
-                                <div className={styles.answers__item}>
-                                    <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} } >
-                                        <img src={three_dots.src} className={styles.three_dots} />
-                                    </div>
-                                    {Object.entries(data[main_index]).slice(0, 6).map(([key, value], index) => (
-                                        <div key={index} className={styles.answer__block}>
-                                            <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
-                                            <p className={styles.answer__text}>
-                                                { main_index === 2 ? (
-                                                    <span className={styles.key_answer}>{ key }</span>
-                                                ) : null }
-                                                {typeof value === 'string' ? value : JSON.stringify(value)}
-                                            </p>
+                            <div className={styles.questions__item}>
+                                <div className={styles.question__typography}>
+                                    <p className={styles.question__description} style={ main_index === 2 ? { maxWidth: "500px", marginTop: "30px" } : {} }>
+                                        { getMainThemeByLanguage(answer, currentLanguage) }
+                                    </p>
+                                </div>
+                            </div>
+                            <div className={styles.questions__item_asnwers} style={ main_index === 1 ? { marginTop: "100px" } : main_index === 2 ? { } : {} }>
+                                <div className={styles.answers__for__questions}>
+                                    <div className={styles.answers__item}>
+                                        <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} } >
+                                            <img src={three_dots.src} className={styles.three_dots} />
                                         </div>
-                                    ))}
-                                </div>
-                                <div className={styles.answers__item}>
-                                    <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} }>
-                                        <img src={three_dots.src} className={styles.three_dots} />
+                                        {Object.entries(data[main_index]).slice(0, 6).map(([key, value], index) => (
+                                            <div key={index} className={styles.answer__block}>
+                                                <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
+                                                <p className={styles.answer__text}>
+                                                    { main_index === 2 ? (
+                                                        <span className={styles.key_answer}>{ key }</span>
+                                                    ) : null }
+                                                    {typeof value === 'string' ? value : JSON.stringify(value)}
+                                                </p>
+                                            </div>
+                                        ))}
                                     </div>
-                                    {Object.entries(data[main_index]).slice(6, 11).map(([key, value], index) => (
-                                        <div key={index} className={styles.answer__block}>
-                                            <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
-                                            <p className={styles.answer__text}>
-                                                { main_index === 2 ? (
-                                                    <span className={styles.key_answer}>{ key }</span>
-                                                ) : null }
-                                                {typeof value === 'string' ? value : JSON.stringify(value)}
-                                            </p>
+                                    <div className={styles.answers__item}>
+                                        <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} }>
+                                            <img src={three_dots.src} className={styles.three_dots} />
                                         </div>
-                                    ))}
-                                </div>
-                                <div className={styles.answers__item}>
-                                    <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} }>
-                                        <img src={three_dots.src} className={styles.three_dots} />
+                                        {Object.entries(data[main_index]).slice(6, 11).map(([key, value], index) => (
+                                            <div key={index} className={styles.answer__block}>
+                                                <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
+                                                <p className={styles.answer__text}>
+                                                    { main_index === 2 ? (
+                                                        <span className={styles.key_answer}>{ key }</span>
+                                                    ) : null }
+                                                    {typeof value === 'string' ? value : JSON.stringify(value)}
+                                                </p>
+                                            </div>
+                                        ))}
                                     </div>
-                                    {Object.entries(data[main_index]).slice(11).map(([key, value], index) => (
-                                        <div key={index} className={styles.answer__block}>
-                                            <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
-                                            <p className={styles.answer__text}>
-                                                { main_index === 2 ? (
-                                                    <span className={styles.key_answer}>{ key }</span>
-                                                ) : null }
-                                                {typeof value === 'string' ? value : JSON.stringify(value)}
-                                            </p>
+                                    <div className={styles.answers__item}>
+                                        <div className={styles.three_dots__block} style={ main_index === 2 ? { display: "none" } : {} }>
+                                            <img src={three_dots.src} className={styles.three_dots} />
                                         </div>
-                                    ))}
+                                        {Object.entries(data[main_index]).slice(11).map(([key, value], index) => (
+                                            <div key={index} className={styles.answer__block}>
+                                                <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
+                                                <p className={styles.answer__text}>
+                                                    { main_index === 2 ? (
+                                                        <span className={styles.key_answer}>{ key }</span>
+                                                    ) : null }
+                                                    {typeof value === 'string' ? value : JSON.stringify(value)}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.arrow_down__block} style={ main_index >= 2 ? { display: "none" } : {} }>
+                                <img src={arrowDown.src} className={styles.arrow_down} />
+                            </div>
+                            <div className={`${main_index === 0 ? styles.img_absolute : main_index === 1 ? styles.img_absolute_cow : ""}`}>
+                                <img src={answer.image ? answer.image : ""} />
+                            </div>
+                            { main_index === 2 ? (
+                                <div className={styles.social_media_block}>
+                                    <div className={styles.social_media}>
+                                    <img src={google.src} alt='google_plus' />
+                                    <img src={facebook.src} alt='facebook' />
+                                    <img src={instagram.src} alt='instagram' />
+                                    <img src={whatsapp.src} alt='whatsapp' />
+                                    </div>
+                                    <div className={styles.email}>www.altynuya@altynuya.org</div>
+                                </div>
+                            ) : null }
+                        </div>
+                    ) : (
+                        <div className={`${main_index % 2 !== 0 ? styles.questions__with_img : styles.questions_with_img_dec}`}>
+                            <div className={`${styles.questions__with_img__item}`}>
+                                <div className={`${styles.questions_typography} container`}>
+                                    <h2>{ questions[answer.question]?.text_kg ? questions[answer.question]?.text_kg : "" }</h2>
+                                    <ul className={styles.answers_with_numbers}>
+                                        { Object.entries(data[main_index]).map(([key, value], index) => (
+                                            <li key={index} className={styles.numbers}>{ typeof value === 'string' ? value : null }</li>
+                                        )) }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className={styles.questions__with_img__item}>
+                                <div className={styles.img_with_answer}>
+                                    <img src={`${API_URL}/${answers[main_index].image.slice(16)}`} alt='answer image' />
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.arrow_down__block} style={ main_index >= 2 ? { display: "none" } : {} }>
-                            <img src={arrowDown.src} className={styles.arrow_down} />
-                        </div>
-                        <div className={`${main_index === 0 ? styles.img_absolute : main_index === 1 ? styles.img_absolute_cow : ""}`}>
-                            <img src={answer.image ? answer.image : ""} />
-                        </div>
-                        { main_index === 2 ? (
-                            <div className={styles.social_media_block}>
-                                <div className={styles.social_media}>
-                                <img src={google.src} alt='google_plus' />
-                                <img src={facebook.src} alt='facebook' />
-                                <img src={instagram.src} alt='instagram' />
-                                <img src={whatsapp.src} alt='whatsapp' />
-                                </div>
-                                <div className={styles.email}>www.altynuya@altynuya.org</div>
-                            </div>
-                        ) : null }
-                    </div>
-                ) : (
-                    <div className={`${main_index % 2 !== 0 ? styles.questions__with_img : styles.questions_with_img_dec}`}>
-                        <div className={`${styles.questions__with_img__item}`}>
-                            <div className={`${styles.questions_typography} container`}>
-                                <h2>{ questions[answer.question]?.text_kg ? questions[answer.question]?.text_kg : "" }</h2>
-                                <ul className={styles.answers_with_numbers}>
-                                    { Object.entries(data[main_index]).map(([key, value], index) => (
-                                        <li key={index} className={styles.numbers}>{ typeof value === 'string' ? value : null }</li>
-                                    )) }
-                                </ul>
-                            </div>
-                        </div>
-                        <div className={styles.questions__with_img__item}>
-                            <div className={styles.img_with_answer}>
-                                <img src={`${API_URL}/${answers[main_index].image.slice(16)}`} alt='answer image' />
-                            </div>
-                        </div>
-                    </div>
-                )
-            )) }
-        </div>
+                    )
+                )) }
+            </div>
+        ) : (
+            <div style={{ width: "100%", height: "300px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Loading/>
+            </div>
+        )
     )
 }
 

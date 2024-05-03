@@ -60,10 +60,10 @@ export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' 
     <header className={styles.ask_block_navbar}>
       <div className='container'>
           <div className={styles.d_f_burger_menu}>
-            <div className={styles.back_block_ask} onClick={() => navigate.push('/')}>
+            <a href='/' style={{ textDecoration: "none", color: "black" }} className={styles.back_block_ask}>
               <img src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
               <span>{ t("back") }</span>
-            </div>
+            </a>
             <div className={styles.burder_menu} onClick={() => setOpenBurgerMenu(true)}>
               <img src={burger_menu.src} alt='burger menu' />
             </div>

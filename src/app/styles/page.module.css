@@ -313,4 +313,10 @@
   .form__title {
     font-size: 32px;
   }
+  .back_block {
+    display: none;
+  }
+  .ask_section {
+    margin-top: 25px;
+  }
 }

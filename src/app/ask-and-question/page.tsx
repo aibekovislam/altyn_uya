@@ -34,10 +34,10 @@ export default function page() {
       <>
         <section className={styles.ask_section}>
           <div className='container'>
-            <div className={styles.back_block} style={ isMobile ? { display: "none" } : {} } onClick={() => navigate.push('/')}>
+            <a href='/' className={styles.back_block} style={ isMobile ? { display: "none" } : { textDecoration: "none", color: "black" } }>
               <img src={arrowDown.src} alt='back arrow' className={styles.arrow_back_img} />
               <span>{ t("back") }</span>
-            </div>
+            </a>
           </div>
           <Questions />
         </section>
