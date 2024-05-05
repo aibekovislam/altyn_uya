@@ -45,7 +45,7 @@ function Home() {
                 </h1>
                 <MainCarousel/>
                 <div className={styles.additional__info}>
-                  <h3 className={`${styles.additional__heading_text} animate__animated animate__fadeInDown`}>{ t("title1") }</h3>
+                  <h2 className={`${styles.additional__heading_text} animate__animated animate__fadeInDown`}>{ t("title1") }</h2>
                   <p className={`${styles.additional__heading_description} animate__animated animate__fadeInDown`}>{ t("title2") }</p>
                   <div className={`${styles.additional__heading_small_text} animate__animated animate__fadeInDown`}>
                     { t("title3") }

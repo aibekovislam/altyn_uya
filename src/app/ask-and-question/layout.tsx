@@ -14,6 +14,7 @@ export default function Layout({
   }>) {
     return (
       <html lang="en">
+        <link rel='canonical' href='https://www.qurban.kg/ask-and-question/' />
         <body>
           <ReduxProvider>
             <NavbarAsk/>
