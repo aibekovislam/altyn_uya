@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import styles from './navbar.module.css';
 import KGLng from '../../app/assets/svgs/navbar/Group 173.svg';
 import LogoSVG from '../../app/assets/svgs/navbar/Group 649.svg';
-import { useRouter } from 'next/navigation';
 import burger_menu from '../../app/assets/svgs/navbar/burger_menu.svg'
 import BurgerMenu from './BurgerMenu';
 import { useTranslation } from 'react-i18next';
@@ -21,15 +20,11 @@ export default function Navbar() {
     const [ closed, setClosed ] = useState(false);
     const [language, setLanguage] = useState('Кыргызча');
     const [languageDropdown, setLanguageDropdown] = useState(false);
-    const navigate = useRouter();
     const currentLanguage = i18n.language
 
     const handleItemClick = (item: string, sectionId: any) => {
         setActiveItem(item);
         smoothScroll(sectionId);
-        if(item === 'Анкета') {
-            navigate.push('/form')
-        }
     };
 
     const smoothScroll = (id: any) => {
@@ -63,13 +58,13 @@ export default function Navbar() {
                     <div className={`${styles.navbar__item} animate__animated animate__fadeInDown`}>
                         <img src={currentLanguage === "Кыргызча" ? LogoSVG.src : currentLanguage === "Русский" ? russianLogo.src : englishLogo.src} className={styles.logo} alt='logo navbar' />
                     </div>
-                    <ul className={styles.navigation}>
-                        <a className={`${styles.navigation__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</a>
-                        <a className={`${styles.navigation__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</a>
-                        <a className={`${styles.navigation__item} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a>
-                        <a href='/form' className={`${styles.navigation__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`}>{ t("form") }</a>
-                        <a className={`${styles.navigation__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</a>
-                        <a className={`${styles.navigation__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>
+                    <ul className={`${styles.navigation}`}>
+                        <li><a href='/' className={`${styles.navigation__item} ${activeNavbar === 'Главная' && styles.active_navbar}`} onClick={() => handleItemClick('Главная', 'home')}>{ t("home") }</a></li>
+                        <li><a href='#about' className={`${styles.navigation__item} ${activeNavbar === 'О нас' && styles.active_navbar}`} onClick={() => handleItemClick('О нас', 'about_us')}>{ t("about") }</a></li>
+                        <li><a href='#faq' className={`${styles.navigation__item} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'faq')}>{ t("faq") }</a></li>
+                        <li><a href='/form' className={`${styles.navigation__item} ${activeNavbar === 'Анкета' && styles.active_navbar}`}>{ t("form") }</a></li>
+                        <li><a href='#gallery' className={`${styles.navigation__item} ${activeNavbar === 'Галерея' && styles.active_navbar}`} onClick={() => handleItemClick('Галерея', 'gallery')}>{ t("gallery") }</a></li>
+                        <li><a href='#footer' className={`${styles.navigation__item} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a></li>
                     </ul>
                     <div className={styles.lng_block}>
                         <div className={`${styles.language_dropdown}`} onClick={toggleLanguageDropdown}>

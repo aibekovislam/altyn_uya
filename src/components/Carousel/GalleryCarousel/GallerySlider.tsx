@@ -18,14 +18,14 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_next.src} className={`${className} ${styles.next}`} style={{ ...style, width: "40px", height: "40px", top: "100%" }} onClick={onClick} />
+        <img src={arrow_next.src} className={`${className} ${styles.next}`} style={{ ...style, width: "40px", height: "40px", top: "100%" }} onClick={onClick} alt='arrow next' />
     );
   }
   
 function SamplePrevArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_prev.src} className={`${className} ${styles.prev}`} style={{ ...style, width: "40px", height: "40px", top: "100%"}} onClick={onClick} />
+        <img src={arrow_prev.src} className={`${className} ${styles.prev}`} style={{ ...style, width: "40px", height: "40px", top: "100%"}} onClick={onClick} alt='arrow previus' />
     );
 }  
 

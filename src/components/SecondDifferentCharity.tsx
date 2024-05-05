@@ -67,7 +67,7 @@ export default function SecondDifferentCharity() {
         </div>
       </div>
       <div className={styles.arrow_down}>
-        <img src={arrowDown.src} />
+        <img src={arrowDown.src} alt='arrow down svg' />
       </div>
     </motion.section>
   )

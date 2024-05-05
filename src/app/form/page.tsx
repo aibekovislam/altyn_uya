@@ -16,6 +16,7 @@ import FooterMain from '@/components/Footer/FooterMain';
 import '../i18n'
 import { useTranslation } from 'react-i18next';
 import 'animate.css';
+import Image from 'next/image';
 
 export default function page() {
     const { t } = useTranslation();
@@ -41,7 +42,7 @@ export default function page() {
                     <div className={styles.form_d_f}>
                         <h2 className={styles.form__title}>{ t("form").toLocaleUpperCase() }</h2>
                         <a href='/' style={{ textDecoration: "none", color: "black" }} className={styles.back_block_ask}>
-                            <img src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
+                            <Image width={20} height={20} src={arrowBack.src} alt='back arrow' className={styles.arrow_back_img_ask} />
                             <span>{ t("back") }</span>
                         </a>
                         <div className={styles.form_and_video}>
@@ -57,7 +58,7 @@ export default function page() {
                         </div>
                     </div>
                     <div className={styles.arrow_down}>
-                        <img src={arrowDown.src} />
+                        <Image src={arrowDown.src} width={25} height={35} alt='arrow down svg' />
                     </div>
                 </div>
             </section>
@@ -70,7 +71,7 @@ export default function page() {
                     <div className={styles.billings}>
                         <div className={styles.billing}>
                             <div className={styles.billing_img}>
-                                <img src={demirbank.src} alt='demirbank' />
+                                <Image src={demirbank.src} width={0} height={0} alt='demirbank' />
                             </div>
                             <div className={styles.requisite_info}>
                                 <span>USD -1180000172923120</span>
@@ -82,7 +83,7 @@ export default function page() {
                         </div>
                         <div className={styles.billing}>
                             <div className={styles.billing_img}>
-                                <img src={optima.src} alt='optima' />
+                                <Image src={optima.src} width={0} height={0} alt='optima' />
                             </div>
                             <div className={styles.requisite_info}>
                                 <span>Мультивалютный</span>
@@ -91,7 +92,7 @@ export default function page() {
                         </div>
                         <div className={styles.billing}>
                             <div className={styles.billing_img}>
-                                <img src={mbank.src} alt='mbank' />
+                                <Image src={mbank.src} width={0} height={0} alt='mbank' />
                             </div>
                             <div className={styles.requisite_info}>
                                 <span>1030120000697624</span> 
@@ -99,7 +100,7 @@ export default function page() {
                         </div>
                         <div className={styles.billing}>
                             <div className={styles.billing_img}>
-                                <img src={kicb.src} alt='kicb' />
+                                <Image src={kicb.src} width={0} height={0} alt='kicb' />
                             </div>
                             <div className={styles.requisite_info}>
                                 <span>1280190000194449</span>
@@ -109,14 +110,14 @@ export default function page() {
                     </div>
                 </div>
                 <div className={styles.arrow_down} style={ isMobile ? { display: "none" } : {} }>
-                    <img src={arrowDown.src} />
+                    <Image src={arrowDown.src} width={25} height={35} alt='arrow down svg' />
                 </div>
             </section>
             <section className={styles.address_info}>
                 <div className='container'>
                     <div className={styles.address_d_f}>
                         <div className={styles.address_info_img}>
-                            <img src={ship.src} />
+                            <Image src={ship.src} width={415} height={385} alt='ship image' />
                         </div>
                         <p className={styles.address_info_text}>{ t("footer_text1") }</p>
                     </div>

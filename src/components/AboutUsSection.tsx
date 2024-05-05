@@ -9,6 +9,7 @@ import arrowDown from '../app/assets/svgs/arrow_down.svg';
 import { useTranslation } from 'react-i18next';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 
 export default function AboutUsSection() {
     const control = useAnimation()
@@ -54,26 +55,26 @@ export default function AboutUsSection() {
                     <div className={styles.about_us_cards}>
                         <div className={styles.about_us_first_card}>
                             <div className={styles.block_about_us}>
-                                <img src={altyn_logo.src} className={styles.cardImgSvg} />
+                                <Image src={altyn_logo.src} width={0} height={0} alt='logo' className={styles.cardImgSvg} />
                                 <p className={styles.card_description}>{ t("about_us_text1") }</p>
                             </div>
                         </div>
                         <div className={styles.about_us_second_card}>
                             <div className={styles.block_about_us}>
-                                <img src={pc.src} className={styles.cardImgSvg} />
+                                <Image src={pc.src} width={0} height={0} alt='computer svg' className={styles.cardImgSvg} />
                                 <p className={styles.card_description}>{ t("about_us_text2") }</p>
                             </div>
                         </div>
                         <div className={styles.about_us_third_card}>
                             <div className={styles.block_about_us}>
-                                <img src={mobile.src} className={styles.cardImgSvg} />
+                                <Image src={mobile.src} width={0} height={0} alt='mobile phone svg' className={styles.cardImgSvg} />
                                 <p className={styles.card_description}>{ t("about_us_text3") }</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.arrow_down}>
-                    <img src={arrowDown.src} />
+                    <Image src={arrowDown.src} width={25} height={35} alt='arrow down svg' />
                 </div>
             </div>
         </motion.section>

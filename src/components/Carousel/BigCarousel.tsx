@@ -20,14 +20,14 @@ import { useInView } from 'react-intersection-observer';
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_next.src} className={className} style={{ ...style, width: "40px", height: "40px", right: "20px", zIndex: 10 }} onClick={onClick} />    
+        <img src={arrow_next.src} className={className} style={{ ...style, width: "40px", height: "40px", right: "20px", zIndex: 10 }} onClick={onClick} alt='arrow next' />    
     );
   }
   
 function SamplePrevArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_prev.src} className={className} style={{ ...style, width: "40px", height: "40px", left: "20px", zIndex: 10 }} onClick={onClick} />
+        <img src={arrow_prev.src} className={className} style={{ ...style, width: "40px", height: "40px", left: "20px", zIndex: 10 }} onClick={onClick} alt='arrow previus' />
     );
 }  
 

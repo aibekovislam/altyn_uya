@@ -36,7 +36,7 @@ export default function FooterAsk() {
                         <div className={styles.contact_us_gmail}><div><img src={google.src} alt='google' /></div> altynuyakg@gmail.com</div>
                     </div>
                     <div className={styles.footer_info_ask}>
-                        <img src={logo_big.src} className={styles.logo_ask} />
+                        <img src={logo_big.src} className={styles.logo_ask} alt='big logo Altyn uya Алтын уя' />
                         <div className={styles.dop_text_ask}>{ t("footer_text3") }</div>
                         <button onClick={() => navigate.push('/form')}><img src={notification.src} alt='notification btn' />{ t("notification") }</button>
                     </div>

@@ -1,33 +1,25 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-// import GoatIMG from '../../app/assets/ask_and_questions/goat.png';
-// import CowIMG from '../../app/assets/ask_and_questions/cow.png';
-// import charity_proccess from '../../app/assets/ask_and_questions/charity_process.png';
-// import charity_report from '../../app/assets/ask_and_questions/charity_report.png'
-// import courier from '../../app/assets/ask_and_questions/courier.png';
+import React from 'react'
 import { useTranslation } from 'react-i18next';
 import arrow_next from '../../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../../app/assets/svgs/slider/arrow_prev.svg';
 import styles from './questions.module.css';
-import dots from '../../app/assets/svgs/dots.svg';
-import active_dots from '../../app/assets/svgs/active_dots.svg';
-import Slider from 'react-slick';
-import { getMainThemeByLanguage, getTextByLanguage } from '@/app/helpers/lngEffect';
+import { getTextByLanguage } from '@/app/helpers/lngEffect';
 import ellipse from '../../app/assets/svgs/Ellipse.svg';
 import ellipseTwo from '../../app/assets/svgs/Eclipse_two.svg';
 
 function SampleNextArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_next.src} className={`${className} ${styles.next}`} style={{ ...style, width: "40px", height: "40px", top: "100%" }} onClick={onClick} />
+        <img src={arrow_next.src} className={`${className} ${styles.next}`} style={{ ...style, width: "40px", height: "40px", top: "100%" }} onClick={onClick} alt='arrow next' />
     );
   }
   
 function SamplePrevArrow(props: any) {
     const { className, style, onClick } = props;
     return (
-        <img src={arrow_prev.src} className={`${className} ${styles.prev}`} style={{ ...style, width: "40px", height: "40px", top: "100%"}} onClick={onClick} />
+        <img src={arrow_prev.src} className={`${className} ${styles.prev}`} style={{ ...style, width: "40px", height: "40px", top: "100%"}} onClick={onClick} alt='arrow previus' />
     );
 }  
 
@@ -66,7 +58,7 @@ export default function QuestionsMobile({ answersWithImages, questions, data }: 
                                 { main_index > 2 ? (
                                     <div>{ index + 1 }. </div>
                                 ) : (
-                                    <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} />
+                                    <img src={`${main_index === 0 ? ellipse.src : main_index === 1 ? ellipseTwo.src : null}`} style={main_index === 2 ? { display: "none" } : {}} className={styles.ellipse} alt='ellipse' />
                                 ) }
                                 <p className={styles.answer__text}>
                                     { main_index === 2 ? (

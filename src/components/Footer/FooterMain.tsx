@@ -48,13 +48,13 @@ export default function FooterMain() {
                     </div>
                     <div className={styles.footer_info}>
                         <p>{ t("footer_text1") }</p>
-                        <img src={logo_big.src} className={styles.logo} />
+                        <img src={logo_big.src} className={styles.logo} alt='big logo Алтын уя' />
                         <div className={styles.dop_text}>{ t("footer_text3") }</div>
                         <button onClick={() => navigate.push('/form')}>{ t("notification") }</button>
                     </div>
                 </div> 
                 <div className={styles.d_f_footer_mobile}>
-                    <img src={shadow.src} className={styles.shadow__mobile} />
+                    <img src={shadow.src} alt='shadow background' className={styles.shadow__mobile} />
                     <img src={LogoSVG.src} alt='logo' />
                     <div className={styles.contact_us_mobile}>
                         <span className={styles.footer_title_mobile}>{ t("footer_text2") }:</span>

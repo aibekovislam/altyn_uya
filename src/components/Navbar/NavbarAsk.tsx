@@ -74,11 +74,11 @@ export default function NavbarAsk({ selectedSection = 'Вопрос/ответ' 
           ) : (null) }
           <div className={styles.links_wrapper}>
             <ul className={styles.navigation__links}>
-              <a href='/' className={`${styles.navigation__link} ${activeNavbar === 'О нас' && styles.active_navbar}`}>{ t("about") }</a>
-              <a className={`${styles.navigation__link} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`} onClick={() => handleItemClick('Вопрос/ответ', 'ask_and_questions')}>{ t("faq") }</a>
-              <a className={`${styles.navigation__link} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'form')}>{ t("form") }</a>
-              <a href='/' className={`${styles.navigation__link} ${activeNavbar === 'Галерея' && styles.active_navbar}`}>{ t("gallery") }</a>
-              <a className={`${styles.navigation__link} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a>
+              <li><a href='/#about' className={`${styles.navigation__link} ${activeNavbar === 'О нас' && styles.active_navbar}`}>{ t("about") }</a></li>
+              <li><a href='/ask-and-question' className={`${styles.navigation__link} ${activeNavbar === 'Вопрос/ответ' && styles.active_navbar}`}>{ t("faq") }</a></li>
+              <li><a href='/form' className={`${styles.navigation__link} ${activeNavbar === 'Анкета' && styles.active_navbar}`} onClick={() => handleItemClick('Анкета', 'form')}>{ t("form") }</a></li>
+              <li><a href='/#gallery' className={`${styles.navigation__link} ${activeNavbar === 'Галерея' && styles.active_navbar}`}>{ t("gallery") }</a></li>
+              <li><a href='/#footer' className={`${styles.navigation__link} ${activeNavbar === 'Контакты' && styles.active_navbar}`} onClick={() => handleItemClick('Контакты', 'footer')}>{ t("contacts") }</a></li>
             </ul>
           </div>
           <div className={styles.navigation__lng}>

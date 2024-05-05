@@ -21,6 +21,8 @@ import { useRouter } from "next/navigation";
 import './i18n';
 import 'animate.css';
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
+import MainImage from './assets/Rectangle 237.png'
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
@@ -34,6 +36,7 @@ function Home() {
   return (
     <>
       <main className={styles.main}>
+          {/* <Image src={MainImage.src} fill priority={true} sizes='100vw' alt="Алтын уя фото" className={styles.main_image} /> */}
           <Navbar/>
           <div className='container'>
               <div className={styles.title_and_carousel}>
@@ -53,13 +56,13 @@ function Home() {
               </div>
               <div className={`${styles.float__btn_video} animate__animated animate__fadeIn`}>
                   {t("video_title")}
-                <img src={video_svg.src} />
+                <Image src={video_svg.src} alt="video player" width={60} height={60} />
               </div>
               <div className={`${styles.social__medias} animate__animated animate__fadeIn`}>
-                <img src={google.src} />
-                <img src={facebook.src} />
-                <img src={instagram.src} />
-                <img src={whatsapp.src} />
+                <Image src={google.src} alt="google logo" width={45} height={35} />
+                <Image src={facebook.src} alt="facebook logo" width={35} height={35} />
+                <Image src={instagram.src} alt="instagram logo" width={35} height={35} />
+                <Image src={whatsapp.src} priority={true} alt="whatsapp logo" width={35} height={35} />
               </div>
           </div>
       </main>
@@ -72,7 +75,7 @@ function Home() {
       <Report/>
       <FooterMain/>
       <a href="#" className={'float_whatsapp'}>
-        <img src={whatsapp.src} alt="whatsapp float link" className={'float_img_link'} />
+        <Image src={whatsapp.src} alt="whatsapp float link" width={35} height={35} className={'float_img_link'} />
       </a>
     </>
   );

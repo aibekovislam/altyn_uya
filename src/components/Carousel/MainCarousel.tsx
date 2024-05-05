@@ -12,18 +12,19 @@ import arrow_next from '../../app/assets/svgs/slider/arrow_next.svg';
 import arrow_prev from '../../app/assets/svgs/slider/arrow_prev.svg';
 import { API_URL } from '@/utils/consts';
 import Loading from '@/app/Loading';
+import Image from 'next/image';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-      <img src={arrow_next.src} className={className} style={{ ...style, width: "40px", height: "40px", right: "-35px" }} onClick={onClick} />
+      <img src={arrow_next.src} className={className} style={{ ...style, width: "40px", height: "40px", right: "-35px" }} onClick={onClick} alt='arrow next' />
   );
 }
 
 function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-      <img src={arrow_prev.src} className={className} style={{ ...style, width: "40px", height: "40px", left: "-40px"}} onClick={onClick} />
+      <img src={arrow_prev.src} className={className} style={{ ...style, width: "40px", height: "40px", left: "-40px"}} onClick={onClick} alt='arrow previus' />
   );
 }  
 
@@ -78,7 +79,7 @@ export default function MainCarousel() {
             <Slider {...settings}>
               { carouselImages?.map((item, index) => (
                 <div key={index} className={styles.carousel__item}>
-                  <img src={`${API_URL}/${item.image.slice(16)}`} className={styles.carousel__item_img} />
+                  <Image src={`${API_URL}/${item.image.slice(16)}`} width={355} height={295} priority={true} alt={`card_image_${index}`} className={styles.carousel__item_img} />
                 </div>
               )) }
             </Slider>

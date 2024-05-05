@@ -28,6 +28,10 @@
     align-items: center;
 }
 
+.navigation li {
+    list-style-type: none;
+}
+
 .navigation__item {
     list-style-type: none;
     cursor: pointer;
@@ -100,6 +104,10 @@
     position: relative;
     text-decoration: none;
     color: black;
+}
+
+.navigation__links li {
+    list-style-type: none;
 }
 
 .navigation__link::after {
