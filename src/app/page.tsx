@@ -22,7 +22,7 @@ import './i18n';
 import 'animate.css';
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import MainImage from './assets/Rectangle 237.png'
+// import MainImage from './assets/Rectangle 237.png'
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
