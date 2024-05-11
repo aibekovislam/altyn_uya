@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: "Алтын уя, алтын уя, курбан, курбан алтын уя, курбан айт, altyn uya, qurban, kyrgyz charity, qurban altyn uya, charity, пожертвование, пожертвования, курман айт, курман, алтын уя курман, курман алтын уя, пожертвовать в благотворительность, благотворительность",
 };
 
-const structuredData = {
+const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Алтын уя Курбан",
@@ -32,7 +32,7 @@ function RootLayout({
         <meta name="keywords" content="Алтын уя, алтын уя, курбан, курбан алтын уя, курбан айт, altyn uya, qurban, kyrgyz charity, qurban altyn uya, charity, пожертвование, пожертвования, курман айт, курман, алтын уя курман, курман алтын уя, пожертвовать в благотворительность, благотворительность" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <title>Алтын уя - сбор пожертвование в Курбан</title>
       </Head>
