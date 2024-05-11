@@ -17,7 +17,7 @@ export default function Card({ firstPost }: any) {
 
   return (
     <div className={styles.card}>
-        <Image src={`${API_URL}/${firstPost.image.slice(16)}`} width={400} height={235} priority={true} alt={getMainTextByLanguage(firstPost, currentLanguage)} className={styles.card_img}/>
+        <Image src={`${API_URL}/${firstPost.image.slice(16)}`} width={400} height={235} priority={true} alt={`Курбан алтын уя пожертвование - ${getMainTextByLanguage(firstPost, currentLanguage)}`} className={styles.card_img} title={`Курбан алтын уя пожертвование - ${getMainTextByLanguage(firstPost, currentLanguage)}`} />
         <p className={styles.card_description}><span className={styles.main_text_card}>{getMainTextByLanguage(firstPost, currentLanguage)}</span> – {getTextByLanguage(firstPost, currentLanguage)}</p>
         <div className={styles.d_f_btn} onClick={() => navigate.push('/form')}>
           <button className={styles.card_btn}><img src={charitySVG.src} alt={`Пожертвовать Алтын уя ${getMainTextByLanguage(firstPost, currentLanguage)}`} /> {t("btn_charity")}</button>

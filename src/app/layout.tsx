@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   keywords: "Алтын уя, алтын уя, курбан, курбан алтын уя, курбан айт, altyn uya, qurban, kyrgyz charity, qurban altyn uya, charity, пожертвование, пожертвования, курман айт, курман, алтын уя курман, курман алтын уя, пожертвовать в благотворительность, благотворительность",
 };
 
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Алтын уя Курбан",
+    "alternateName": "Курбан",
+    "url": "https://www.qurban.kg/",
+    "logo": "https://www.qurban.kg/favicon.ico"
+}
+
 function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +28,11 @@ function RootLayout({
       <link rel='canonical' href='https://www.qurban.kg/' />
       <meta name="description" content="Сделайте доброе дело и совершите пожертвование в курбан айт. Поддержите благотворительность прямо сейчас! Помогите нуждающимся и сделайте пожертвование в курбан айт. Ваш вклад в благотворительность важен! Поддержите благотворительный проект и совершите пожертвование в курбан айт. Вместе мы можем помочь тем, кто в беде." />
       <meta name="keywords" content="Алтын уя, алтын уя, курбан, курбан алтын уя, курбан айт, altyn uya, qurban, kyrgyz charity, qurban altyn uya, charity, пожертвование, пожертвования, курман айт, курман, алтын уя курман, курман алтын уя, пожертвовать в благотворительность, благотворительность" />
-      <title>Алтын уя - пожертвование в Курбан</title>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <title>Алтын уя - сбор пожертвование в Курбан</title>
       <body>
         <ReduxProvider>
           {children}
