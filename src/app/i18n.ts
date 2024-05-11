@@ -34,7 +34,8 @@ const resources = {
       "input_placeholder3": "Intention of donation",
       "registration": "Registration",
       "form_title1": "FOR TRANSFERRING FUNDS FOR THE TREATMENT OF KURMANDYK, OFFICIAL FUND DETAILS",
-      "sended_title": "Your request has been received, we will contact you shortly!"
+      "sended_title": "Your request has been received, we will contact you shortly!",
+      "qurban_title": "QURBAN"
     }
   },
   "Русский": {
@@ -69,7 +70,8 @@ const resources = {
       "input_placeholder3": "Намерение жертвования",
       "registration": "Регистрация",
       "form_title1": "ДЛЯ ПЕРЕДАЧИ СРЕДСТВ НА ЦЕЛИ ЛЕЧЕНИЯ КУРМАНДЫКА, ОФИЦИАЛЬНЫЕ РЕКВИЗИТЫ ФОНДА",
-      "sended_title": "Ваша заявка, отправлена скоро с вами свяжемся!"
+      "sended_title": "Ваша заявка, отправлена скоро с вами свяжемся!",
+      "qurban_title": "КУРБАН"
     }
   },
   "Кыргызча": {
@@ -104,7 +106,8 @@ const resources = {
         "input_placeholder3": "Курмандык чалдыруунун ниети",
         "registration": "Регистрация",
         "form_title1": "КУРМАНДЫК МАЛЫНЫН АКЧАСЫН КОТОРУУ ҮЧҮН, ФОНДДУН РАСМИЙ РЕКВИЗИТТЕРИ:",
-        "sended_title": "Сиздин талаптарыңыз кабыл алынды, чыгышыңыз кандай таанылат. Жакында сиз менен байланышамыз!"
+        "sended_title": "Сиздин талаптарыңыз кабыл алынды, чыгышыңыз кандай таанылат. Жакында сиз менен байланышамыз!",
+        "qurban_title": "КУРБАН"
     }
   }
 };

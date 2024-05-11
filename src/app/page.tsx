@@ -41,7 +41,7 @@ function Home() {
           <div className='container'>
               <div className={styles.title_and_carousel}>
                 <h1 className={`${styles.main_title} ${europeFont.className} animate__animated animate__fadeInDown`}>
-                  QURBAN
+                  { t("qurban_title") }
                 </h1>
                 <MainCarousel/>
                 <div className={styles.additional__info}>
