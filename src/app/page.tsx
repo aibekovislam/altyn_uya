@@ -22,7 +22,6 @@ import './i18n';
 import 'animate.css';
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-// import MainImage from './assets/Rectangle 237.png'
 
 const europeFont = localFont({
   src: './assets/font/europeext_bold.otf',
@@ -36,7 +35,6 @@ function Home() {
   return (
     <>
       <main className={styles.main}>
-          {/* <Image src={MainImage.src} fill priority={true} sizes='100vw' alt="Алтын уя фото" className={styles.main_image} /> */}
           <Navbar/>
           <div className='container'>
               <div className={styles.title_and_carousel}>

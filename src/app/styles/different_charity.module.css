@@ -55,6 +55,33 @@
     }
 }
 
+@media screen and (max-width: 1420px) {
+    .card_index_0 {
+        bottom: 0;
+        left: 0%;
+    }
+    
+    .card_index_1 {
+        top: 20%;
+    }
+    
+    .card_index_2 {
+        right: 0%;
+    }
+    .second_card_index_0 {
+        bottom: 0;
+        left: 0%;
+    }
+    
+    .second_card_index_1 {
+        top: 20%;
+    }
+    
+    .second_card_index_2 {
+        right: 0%;
+    }
+}
+
 .second_different_charity {
     width: 100%;
     height: auto;

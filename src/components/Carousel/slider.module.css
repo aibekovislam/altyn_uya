@@ -4,7 +4,7 @@
 }
 
 .carousel__item_img {
-    width: 355px;
+    width: 25vw;
     height: 295px;
     object-fit: cover;
 }
