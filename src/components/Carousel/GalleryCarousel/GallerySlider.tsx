@@ -82,7 +82,7 @@ export default function GallerySlider() {
                 >
                     { gallery?.map((item: any, index: number) => (
                         <div className={styles.gallery_img_block} key={index}>
-                            <img src={`${API_URL}/${item.image.slice(16)}`} alt='gallery'/>
+                            <img src={`${item.image}`} alt='gallery'/>
                         </div>
                     )) }
                 </Slider>

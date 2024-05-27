@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../app/styles/page.module.css';
 import arrowBack from '../../app/assets/svgs/arrow_back.svg';
-import { useRouter } from 'next/navigation';
 import Form from '@/components/Form/Form';
 import arrowDown from '../../app/assets/svgs/arrow_down.svg';
 import demirbank from '../assets/svgs/billings/Demirbank.svg';
@@ -17,10 +16,10 @@ import '../i18n'
 import { useTranslation } from 'react-i18next';
 import 'animate.css';
 import Image from 'next/image';
+import videImage from '../assets/video.png'
 
 export default function page() {
     const { t } = useTranslation();
-    const navigate = useRouter();
     const [isMobile, setIsMobile] = useState(false);
     const [ sendedForm, setSendedForm ] = useState(false);
 
@@ -47,11 +46,11 @@ export default function page() {
                         </a>
                         <div className={styles.form_and_video}>
                             <div className={styles.form__item} style={ sendedForm ? { width: "100%" } : {} }>
-                                <Form sendedForm={sendedForm} setSendedForm={setSendedForm} />
+                                <Form />
                             </div>
                             { sendedForm ? (null) : (
                                 <div className={styles.form_and_video__item}>
-                                    <img src={'https://s3-alpha-sig.figma.com/img/204d/f11b/2f0b2a822e5d87ac75ad067ee865c240?Expires=1714348800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cyL4o11lHtsgjFhBWlw-ku7bT2OYXE~DfSzzl-hGZ4dGklLgMwMJZFAN2DpZED9w3YhrANtBCO8KaCZvEa3SdT-KdASkWONQ80e2R~xW8V9w526y0FaNU-itjwjDaLhMJb8FJlvPD106kmq1T0bqmuTcAKsXx0T4c0mjZ440zRXKeGQ7Lz4urYZQhO2ubG9uQhVtLkkDHS6tbGjNHhjXnhS~wlYhfiClD4vZQQAGG1FdSgX9GqAhqrAF77uXQghFHe0L0XG6XVjrdv6GOmrSzbmbqSd6QLv8DRvqQenCznubfEBQoRVwmdNZtGVB8gdMJCCUJyiERpls-RTH~WrsQg__'} className={styles.form_page_img} alt='deleted img' />
+                                    <img src={'?-~~wlYhfiClD4vZQQAGG1FdSgX9GqAhqrAF77uXQghFHe0L0XG6XVjrdv6GOmrSzbmbqSd6QLv8DRvqQenCznubfEBQoRVwmdNZtGVB8gdMJCCUJyiERpls-RTH~WrsQg__'} className={styles.form_page_img} alt='deleted img' />
                                     {/* <video></video> */}
                                 </div>
                             ) }

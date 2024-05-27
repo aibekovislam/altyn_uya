@@ -174,7 +174,7 @@ export default function Questions() {
                             </div>
                             <div className={styles.questions__with_img__item}>
                                 <div className={styles.img_with_answer}>
-                                    <img src={`${API_URL}/${answers[main_index].image.slice(16)}`} alt='answer image' />
+                                    <img src={`${answers[main_index].image}`} alt='answer image' />
                                 </div>
                             </div>
                         </div>

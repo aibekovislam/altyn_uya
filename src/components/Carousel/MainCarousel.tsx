@@ -79,7 +79,7 @@ export default function MainCarousel() {
             <Slider {...settings}>
               { carouselImages?.map((item, index) => (
                 <div key={index} className={styles.carousel__item}>
-                  <Image src={`${API_URL}/${item.image.slice(16)}`} width={355} height={295} priority={true} alt={`card_image_${index}`} className={styles.carousel__item_img} />
+                  <Image src={`${item.image}`} width={355} height={295} priority={true} alt={`card_image_${index}`} className={styles.carousel__item_img} />
                 </div>
               )) }
             </Slider>
