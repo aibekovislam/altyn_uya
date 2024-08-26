@@ -1,1 +1,1 @@
-export const API_URL = 'https://michelle-kg.online'
+export const API_URL = 'https://altynuya.serveo.net'
