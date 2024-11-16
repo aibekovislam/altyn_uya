@@ -2,7 +2,7 @@
 
 const nextConfig = {
     images: {
-      domains: ['michelle-kg.online']
+      domains: ['qurban.soulist.life']
     },
 };
 
