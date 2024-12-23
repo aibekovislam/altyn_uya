@@ -50,7 +50,7 @@ export default function page() {
                             </div>
                             { sendedForm ? (null) : (
                                 <div className={styles.form_and_video__item}>
-                                    <img src={'?-~~wlYhfiClD4vZQQAGG1FdSgX9GqAhqrAF77uXQghFHe0L0XG6XVjrdv6GOmrSzbmbqSd6QLv8DRvqQenCznubfEBQoRVwmdNZtGVB8gdMJCCUJyiERpls-RTH~WrsQg__'} className={styles.form_page_img} alt='deleted img' />
+                                    <img src={'https://s3-alpha-sig.figma.com/img/204d/f11b/2f0b2a822e5d87ac75ad067ee865c240?Expires=1736121600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZYUj8ZBIE~LSmhJrvwlA~vEnrk4FomaiXH8WueyxgZTQs9OJT9OO3xQzvIbaK~It8qaRKGtc-Wm3DBAVVYQLceCKZ7bN08Qp6gJ2dezlFg1m8yEMOk4p~PcdMQrdgK7yBa7Km5TgrV~dtrjyUSQs6-ZLIJNQs7X-YyQs~toyuiN-dea~3rWNsNtUks6Op05oYLcMRXEiJIOl5SJSIzfFzbYakmQxXLi1vWE2EZzgbwxV8Rz-D5M4upCNSpa4~mlsorumnGiIHSRJPiS3Ng4cGGgwG8-~ZkOpKRcwIFaL-tlbRnmxoJupCIhrIZiixgYq7Xk-ckBob4y96lTC7AWN0Q__'} className={styles.form_page_img} alt='image' />
                                     {/* <video></video> */}
                                 </div>
                             ) }
